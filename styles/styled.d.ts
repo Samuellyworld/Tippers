@@ -52,7 +52,7 @@ declare module 'styled-components' {
 		online: string;
 		offline: string;
 		me: string;
-	}
+	} 
 
 	export interface GradientType {
 		blackToTransparent;
@@ -216,7 +216,7 @@ declare module 'styled-components' {
 		media: MediaQueryType;
 		breakpoints: string[];
 		borderRadius: BorderRadiusType;
-		colors: ColorType;
+		colors: ColorType | any;
 		gradients: GradientType;
 		fonts: FontType;
 		fontSizes: FontSizeType;
