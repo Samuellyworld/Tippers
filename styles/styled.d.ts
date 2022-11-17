@@ -1,3 +1,8 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
+
+// declaring module typings in styled-components
 import 'styled-components';
 
 // and extend them!
@@ -104,7 +109,7 @@ declare module 'styled-components' {
 	}
 
 	export interface MediaQueryType {
-		small: (args: TemplateStringsArray ) => any;
+		small: (args: TemplateStringsArray ) => string;
 		medium: (args: TemplateStringsArray) => string;
 		large: (args: TemplateStringsArray) => string;
 		up: (

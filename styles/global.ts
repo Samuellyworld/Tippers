@@ -1,26 +1,85 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+/* stylelint-disable */
+import { createGlobalStyle } from 'styled-components';
 
-* {
-  box-sizing: border-box;
-}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+// styled components global styles
+export const GlobalStyle = createGlobalStyle`
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+    font-family: inherit;
   }
+
+  html, 
   body {
-    color: white;
-    background: black;
+    height:100%; 
+    padding:0; 
+    margin:0; 
+    width:100%;
   }
-}
+  
+  html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  body {
+    display:flex; 
+    flex-direction:column;
+    overflow-x: hidden;
+    /* background: ${({ theme }) => theme.colors.nero}; */
+    color: ${({ theme }) => theme.colors.nero};
+    font-family: ${({ theme }) => theme.fonts.primary};
+  }
+
+  /* since next js adds a wrapper div inside body tag, give it 
+  a 100% height so the children can have 100% height if needed. */
+  #__next {
+    height: 100%;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul,  
+  fieldset,
+  label {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+  
+  ol,
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
