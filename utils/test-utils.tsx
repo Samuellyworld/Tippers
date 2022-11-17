@@ -1,3 +1,6 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 

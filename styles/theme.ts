@@ -1,3 +1,8 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
+// theme and queries
+
 /* stylelint-disable */
 import {
 	ColorType,
@@ -11,7 +16,13 @@ import {
 // These values will be used to generate mobile - first(i.e. min - width) media queries, which can then be used to apply responsive styles.
 const breakpoints = ['40em', '52em', '82em'];
 
-const queries = {
+interface queriesType {
+	small : string | any,
+	medium : string | any,
+	large : string | any
+}
+
+const queries :queriesType| any ={
 	small: `@media screen and (min-width: ${breakpoints[0]})`,
 	medium: `@media screen and (min-width: ${breakpoints[1]})`,
 	large: `@media screen and (min-width: ${breakpoints[2]})`
