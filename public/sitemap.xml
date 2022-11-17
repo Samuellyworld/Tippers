@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://domain.com/cart</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/category</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/chat</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/dashboard</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/favorite</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/my-listing</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/pdp</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/seller-profile</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile/address</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile/balance</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile/inbox</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile/notification</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile/password</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/profile/payments</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://domain.com/seo/sitemap</loc>
+    <lastmod>2021-05-20T13:37:36.652Z</lastmod>
+  </url>
+</urlset>
