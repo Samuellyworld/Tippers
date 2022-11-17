@@ -1,4 +1,4 @@
-import './main.scss';
+import '../styles/sass/main.scss'
 
 import { AppProps } from 'next/app';
 import { MediaQueryProvider } from '../providers/MediaQueryProvider';
