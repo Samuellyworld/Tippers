@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+/* @import 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'; */
+@import 'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css';
+/* @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'; */
+@font-face {
+	font-family: 'Chopsic';
+	src: local('Chopsic'), url('/fonts/Chopsic.ttf') format('truetype');
+}
+
+:root {
+	--wheel-font: 'Chopsic', 'Quicksand', sans-serif;
+	--wheel-size: 300px;
+	--wheel-slice-spacing: 50px;
+	--wheel-border-size: 5px;
+	--wheel-color: black;
+	--neutral-color: black;
+	--PI: 3.14159265358979;
+	--nb-item: 0;
+	--item-nb: 0;
+	--selected-item: 0;
+	--nb-turn: 20;
+	--spinning-duration: 10s;
+	--reset-duration: 0.25s;
+}
+
+/* wheel*/
+.wheel-container {
+	display: block;
+	position: relative;
+	z-index: 1000;
+	box-sizing: content-box;
+	width: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
+	height: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
+	padding: 5px;
+	margin: auto;
+	background-color: black;
+	border: solid black 3px;
+	border-radius: 50%;
+	user-select: none;
+}
+
+/* Triangle de sélection = 1 rose +  1 blanc */
+.wheel-container::before,
+.wheel-container::after {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 0;
+	width: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	border: solid transparent 20px;
+	border-left-width: 0;
+}
+
+.wheel-container::before {
+	right: 0px;
+	border-right-color: var(--wheel-color);
+}
+
+.wheel-container::after {
+	right: -5px;
+	border-right-color: var(--neutral-color);
+}
+
+/* Roue */
+.wheel {
+	display: block;
+	position: relative;
+	box-sizing: content-box;
+	margin: auto;
+	width: var(--wheel-size);
+	height: var(--wheel-size);
+	overflow: hidden;
+	border-radius: 50%;
+	border: solid black var(--wheel-border-size);
+	background-color: var(--wheel-color);
+	transition: transform var(--reset-duration);
+	transform: rotate(0deg);
+	cursor: pointer;
+}
+
+.wheel.spinning {
+	transition: transform var(--spinning-duration);
+	transform: rotate(
+		calc(var(--nb-turn) * 360deg + (-360deg * var(--selected-item) / var(--nb-item, 1)))
+	);
+}
+
+/*wheel after */
+.wheel::after {
+	display: block;
+	position: absolute;
+	content: '';
+	background-color: var(--neutral-color);
+	width: 25px;
+	height: 25px;
+	z-index: 2;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+}
+
+/* wheel item*/
+.wheel-item {
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+
+	/* position de l'item */
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	transform-origin: center left;
+	transform: translateY(-50%) rotate(calc(var(--item-nb) * (360deg / var(--nb-item, 1))));
+
+	/* texte */
+	color: var(--neutral-color);
+	text-align: right;
+	padding: 0 25px 0 50px;
+	font-family: var(--wheel-font);
+}
+
+/* Background de l'élément = triangle rose plus clair */
+.wheel-item:before {
+	content: ' ';
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	z-index: -1;
+	width: 0;
+	height: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding-left: 0px;
+	/* opacity: 0.25; */
+
+	/* 
+    Largeur du triangle
+    Je ne sais pas pourquoi j'ai besoin d'ajouter 
+      " + var(--wheel-size) / 2 " dans slice-max-width  ==> donne 2.PI.R + R
+    mais globalement ca marche a peu près bien 
+    TODO: A étudier 
+  */
+	--slice-max-width: calc(var(--PI) * var(--wheel-size) + var(--wheel-size) / 2);
+	--slice-width: calc((var(--slice-max-width) / var(--nb-item)) - var(--wheel-slice-spacing));
+	border: solid transparent calc(var(--slice-width) / 1.57);
+	border-left: solid transparent 0;
+	/* profondeur du triangle = du centre de la roue à la bordure = 300px / 2 */
+	border-right: solid orange calc(var(--wheel-size) / 2);
+}
+
+@media (max-width: 576.98px) {
+	.wheel-item:before {
+		--slice-max-width: calc(var(--PI) * 200px + 200px / 2);
+		--slice-width: calc((var(--slice-max-width) / var(--nb-item)) - var(--wheel-slice-spacing));
+		border: solid transparent calc(var(--slice-width) / 1.27);
+		border-left: solid transparent 0;
+		/* profondeur du triangle = du centre de la roue à la bordure = 300px / 2 */
+		border-right: solid orange calc(200px / 2);
+	}
+}
