@@ -1,10 +1,16 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
+// importing relevant modules, icon and functions
 import { useRef } from 'react';
 import { Typography } from '../../atoms/Typography';
 import { CircleDownArrow, Coins, Dice, WheelIcon } from '../../svgs';
 import { scrollToElement } from '../../../utils/scrollTo';
 
+// importing styling
 import { Bottom, GameCard, HomepageContainer, Top } from './index.styled';
 
+// JSX Component
 const Homepage = (): JSX.Element => {
 	const gamesRef: any= useRef(null);
 

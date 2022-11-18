@@ -158,3 +158,9 @@
 		border-right: solid orange calc(200px / 2);
 	}
 }
+
+@media screen and (max-width: 1030px) {
+	 .coins__landing {
+		width: 8rem !important;
+	 }
+}

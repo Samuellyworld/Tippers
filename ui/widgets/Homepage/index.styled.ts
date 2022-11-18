@@ -1,7 +1,12 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
+// importing  styled module
 import styled from 'styled-components';
 
 export const HomepageContainer = styled.div``;
 
+/// Top stylings
 export const Top = styled.div`
 	width: 75%;
 	margin: auto;
@@ -46,6 +51,7 @@ export const Top = styled.div`
 	}
 `;
 
+/// bottom styling
 export const Bottom = styled.div`
 	display: grid;
 	align-items: center;
@@ -60,6 +66,7 @@ export const Bottom = styled.div`
 	}
 `;
 
+// game card styling
 export const GameCard = styled.a`
 	display: flex;
 	align-items: center;

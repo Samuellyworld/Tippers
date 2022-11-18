@@ -69,7 +69,7 @@ const Div = styled.div`
 	}
 `;
 
-const AllIcons = ({ children }) => (
+const AllIcons = ({ children } : any) => (
 	<Div>
 		{Children.toArray(children).map((icon, index) => (
 			<div key={index} className="cell">
@@ -135,5 +135,5 @@ const Template = () => {
 	);
 };
 
-export const Icons = Template.bind({});
+export const Icons : any= Template.bind({});
 Icons.args = {};
