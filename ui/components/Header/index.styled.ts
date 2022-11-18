@@ -1,11 +1,14 @@
+// importing styled from styled components
 import styled from 'styled-components';
 
+// header-container styling
 export const HeaderContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 `;
 
+// button styling
 export const ConnectButton = styled.button`
 	width: 223px;
 	height: 62px;
@@ -33,14 +36,16 @@ export const ConnectButton = styled.button`
 	}
 `;
 
+// text logo styling
 export const TextLogo = styled.a`
-
 	gap: 1rem;
 	display: flex;
 	@media (max-width: 576.98px) {
 		display: none;
 	}
 `;
+
+// svg logo styling
 export const SVGLogo = styled.a`
 	@media (min-width: 576.98px) {
 		display: none;

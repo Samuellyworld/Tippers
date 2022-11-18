@@ -35,7 +35,7 @@ export interface TypographyProps {
 				| 'hoki'
 				| 'shuttleGray'
 				| 'freeSpeechRed'
-		  >;
+		  > ;
 	size?: keyof Pick<
 		DefaultTheme['fontSizes'],
 		'xs' | 'sm' | '5xl' | 'lg' | 'md' | 'xl' | '2xl' | '4xl'
@@ -110,7 +110,7 @@ const Typography = styled.span.attrs<TypographyProps>(({ variant = 'span', type 
 		})}
 	`}
 
-	color: ${({ color, theme }) => (color ? theme.colors[color] : theme.colors.merlin)};
+	color: ${({ color, theme})=> (color ? theme.colors[color] : theme.colors.merlin)};
 	font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
 	${({ noMargin }) => noMargin !== undefined && `margin: 0;`};
 	${({ align }) => align && `text-align: ${align};`}
