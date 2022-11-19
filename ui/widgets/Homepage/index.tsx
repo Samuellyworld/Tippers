@@ -22,15 +22,15 @@ const Homepage = (): JSX.Element => {
 				<CircleDownArrow onClick={() => scrollToElement(gamesRef)} />
 			</Top>
 			<Bottom ref={gamesRef}>
-				<GameCard href="/dice">
+				<GameCard href="/games/dice">
 					<Dice />
 					<Typography variant="p">Roll Dice</Typography>
 				</GameCard>
-				<GameCard href="/coin">
+				<GameCard href="/games/coin">
 					<Coins />
 					<Typography variant="p">Coin toss</Typography>
 				</GameCard>
-				<GameCard href="/wheels">
+				<GameCard href="/games/wheels">
 					<WheelIcon />
 					<Typography variant="p">
 						Spin the <br /> wheel
