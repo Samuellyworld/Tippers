@@ -8,7 +8,7 @@ import Homepage from '../ui/widgets/Homepage'
 // JSX Component
 export default function Home() {
   return (
-     <Layout>
+     <Layout background={true}>
        <Homepage />
      </Layout>
   )
