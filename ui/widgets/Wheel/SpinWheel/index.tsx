@@ -45,6 +45,7 @@ const SpinWheel = ({
 		// }
 	};
 	useEffect(() => {
+		console.log(selectedItem, 'select')
 		if (spin) {
 			// console.log('everybody');
 			selectItem();
@@ -66,7 +67,8 @@ const SpinWheel = ({
 						className={`wheel ${spinning}`}
 						items={items.length}
 						selectedItem={selectedItem}
-						onClick={selectItem}>
+						// onClick={selectItem}
+						>
 						{items.length
 							? items.map((item, index) => (
 									<WheelItem className="wheel-item" key={index} index={index} item={item}>
