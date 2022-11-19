@@ -9,8 +9,8 @@ import { scrollToElement } from '../../../utils/scrollTo';
 // importing stylings
 import { FirstColumn, GameContainer, SecondColumn } from './index.styled';
 
-// wheel proops typing
-export interface WheelProps {
+// games proops typing
+export interface GamesProps {
 	stakes: string[];
 	items: string[];
 	currencies: string[];
@@ -20,14 +20,14 @@ export interface WheelProps {
 }
 
 // JSX Component
-const GameLayout = (props: WheelProps): JSX.Element => {
+const GameLayout = (props: GamesProps): JSX.Element => {
 	// initial value and set states
 	const { stakes, items, connected, currencies, game, component: Component } = props;
 	const [stake, setStake] = useState('');
 	const [spin, setSpin] = useState(false);
 	const [show, setShow] = useState(false);
 	const [result, setResult] = useState('');
-	const [coin, setCoin] = useState('Matic');
+	const [coin, setCoin] = useState('matic');
 	const [payout, setPayout]:any = useState(null);
 
 	const gameRef:any = useRef(null);
