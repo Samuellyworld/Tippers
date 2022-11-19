@@ -6,7 +6,7 @@ import { mockData_WheelProps } from '../../ui/widgets/Wheel/MOCK_DATA';
 
 const Wheels: NextPage = (): JSX.Element => {
 	return (
-		<Layout>
+		<Layout background={true}>
 			<Wheel {...mockData_WheelProps} />
 		</Layout>
 	);

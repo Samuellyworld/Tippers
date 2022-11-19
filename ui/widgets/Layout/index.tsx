@@ -10,13 +10,15 @@ import Header from '../../components/Header';
 import { FooterWrapper, HeaderWrapper, LayoutWrapper, Main } from './index.styled';
 
 // JSX Component
-const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
+const Layout = ({ children, background }: { children: React.ReactNode, background: boolean }): JSX.Element => {
 	const connectWallet = () => {
 		// Connect wallet function can be written here
 		console.log('hello');
 	};
 	return (
-		<LayoutWrapper>
+		<LayoutWrapper style={{
+			backgroundImage: background ? "url('/assets/pageBG.svg')" : "url('/assets/Landing.png')"
+		}}>
 			<HeaderWrapper>
 				<Header connect={connectWallet} />
 			</HeaderWrapper>

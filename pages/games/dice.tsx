@@ -11,7 +11,7 @@ import Layout from '../../ui/widgets/Layout';
 // JSX Component
 const Dice: NextPage = (): JSX.Element => {
 	return (
-		<Layout>
+		<Layout background={true}>
 			<DiceGame {...mockData_CoinsProps} />
 		</Layout>
 	);

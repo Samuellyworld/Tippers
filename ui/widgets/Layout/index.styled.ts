@@ -12,7 +12,7 @@ export const LayoutWrapper = styled(Container)`
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
-	background-image: url('/assets/pageBG.svg');
+	// background-image: url('/assets/pageBG.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

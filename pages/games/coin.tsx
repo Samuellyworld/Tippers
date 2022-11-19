@@ -12,7 +12,7 @@ import Layout from '../../ui/widgets/Layout';
 
 const Coin: NextPage = (): JSX.Element => {
 	return (
-		<Layout>
+		<Layout background={true}>
 			<Coins {...mockData_CoinsProps} />
 		</Layout>
 	);
