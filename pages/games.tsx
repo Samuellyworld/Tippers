@@ -3,13 +3,13 @@
 
 //importing relevant modules
 import Layout from '../ui/widgets/Layout'
-import Homepage from '../ui/widgets/Homepage'
+import Gamepage from '../ui/widgets/Gamepage'
 
 // JSX Component
 export default function Home() {
   return (
      <Layout background={true}>
-       <Homepage />
+       <Gamepage />
      </Layout>
   )
 }
