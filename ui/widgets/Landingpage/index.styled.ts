@@ -20,6 +20,51 @@ export const LandingpageComponent1 =  styled.div`
 
     span {
         color: #E91CE5
+    }  
+  }
+
+  }
+  @media screen and (max-width: 1000px) {
+    h1 {
+      font-size: 2.5rem;
+      inline-size: 35rem;
+    }
+  }
+  @media screen and (max-width: 580px) and (min-width: 516px) {
+     h1 {
+       font-size: 2rem;
+       inline-size: 30rem;
+     
+     }
+  }
+  @media screen and (max-width: 516px) and (min-width: 442px) {
+        padding-left: 5rem !important;
+        h1 {
+          font-size: 2rem;
+          inline-size: 30rem;
+        
+        }
+      }
+   @media screen and (max-width: 442px) and (min-width: 350px) {
+           justify-content: center !important;
+           align-items: center !important;
+           h1 {
+            font-size: 1.6rem;
+            inline-size: 23rem;
+            padding-left: 1rem;
+          
+          }
+        }
+  }
+  @media screen and (max-width: 350px) and (min-width: 0px) {
+    justify-content: center !important;
+    align-items: center !important;
+
+    h1 {
+      font-size: 1.3rem;
+      inline-size: 20rem;
+      padding-left: 1rem;
+    
     }
   }
 `
@@ -100,6 +145,21 @@ export const StartButton = styled.button`
     padding: 0.8rem 4rem;
     background: rgba(217, 217, 217, 0.2)
   }
+  @media screen and (max-width: 442px) and (min-width: 350px) {
+    width: 85% !important;
+    height: 4rem;
+    span {
+      padding: 1rem 7.6rem !important
+    }
+  }
+  @media screen and (max-width: 350px) and (min-width: 0px) {
+    width: 85% !important;
+    height: 4rem;
+    span {
+      padding: 1.3rem 6.5rem !important
+    }
+  }
+  
 
 `
 
@@ -109,4 +169,10 @@ export const LandingpageComponent2 = styled.div`
    height: 40rem;
    margin: -5rem 0rem 0rem -4rem;
    }
+   @media screen and (max-width: 850px) {
+     img{
+      display: none;
+     }
+   }
+
 `
