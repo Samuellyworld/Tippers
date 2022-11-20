@@ -11,7 +11,7 @@ import { scrollToElement } from '../../../utils/scrollTo';
 import { Bottom, GameCard, HomepageContainer, Top } from './index.styled';
 
 // JSX Component
-const Homepage = (): JSX.Element => {
+const Gamepage = (): JSX.Element => {
 	const gamesRef: any= useRef(null);
 
 	return (
@@ -41,4 +41,4 @@ const Homepage = (): JSX.Element => {
 	);
 };
 
-export default Homepage;
+export default Gamepage;

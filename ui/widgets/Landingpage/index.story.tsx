@@ -3,15 +3,15 @@
 
 // importing relevant module
 import React from 'react';
-import Homepage from '.';
+import Landingpage from '.';
 
 export default {
-	title: 'Widgets/Homepage',
-	component: Homepage
+	title: 'Widgets/Landingpage',
+	component: Landingpage
 };
 
 const Template = (args: JSX.IntrinsicAttributes) => {
-	return <Homepage {...args} />;
+	return <Landingpage {...args} />;
 };
 
 export const Default: any= Template.bind({});
