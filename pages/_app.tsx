@@ -3,7 +3,8 @@
 
 //importing relevant module
 import '../styles/sass/main.scss'
-
+import { Provider } from "react-redux";
+import { store } from '../store/store';
 import { AppProps } from 'next/app';
 import { MediaQueryProvider } from '../providers/MediaQueryProvider';
 import { ModalProvider } from '../providers/ModalProvider'; // modal providal written in redux
@@ -15,7 +16,7 @@ import { theme } from '../styles/theme';
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
 	return (
-		<>
+		<Provider store={store}>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
 				<MediaQueryProvider>
@@ -24,6 +25,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 					</ModalProvider>
 				</MediaQueryProvider>
 			</ThemeProvider>
-		</>
+		</Provider>
 	);
 }
