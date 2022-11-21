@@ -33,15 +33,15 @@ const AlertModal = () => {
       borderRadius : "5px",
       padding : "3px",
       flexDirection: "column",
-      background :  "#4a4a4a",
+      background :  "linear-gradient(200.87deg,#7320ab 5.64%,#4a24aa 86.2%)",
       fontWeight: 500,
+      transition: "all 1.4s ease-in-out",
       textTransform: "uppercase",
     }}
-    className="confirmation"
   >
     
     <div
-          style={{
+      style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -50,38 +50,34 @@ const AlertModal = () => {
           <p
             style={{
               display: "flex",
-              opacity: 0.7,
+              opacity: "0.9",
               fontWeight: "500",
               margin: "0px 0px 20px",
               padding: "5px 11px 4px 2px",
               textTransform: "uppercase",
-              borderBottom: `2px solid  "#eee"`,
+              borderBottom: "2px solid #eee",
               flexDirection: "row",
               justifyContent: "space-between"
             }}
           >
             <GridLoader    
-               color="#eee"
-                size={20}
-                // width={20}
+                color="#eee"
+                size={2}
                 speedMultiplier={0.4} 
                 />
-
-               <span style={{
+            <span style={{
                    marginLeft: "5px",
-                   color:"#eee"
+                   color:"white",
+                   fontFamily: "Chopsic sans-serif"
                }}> Alert </span>
-          </p>
-
-        
-            <p style={{
+          </p>      
+          <p style={{
             padding : "1px", 
             fontSize : "11px",
-            fontWeight : "bold",
-            color : "#ff4343" ,
-            // color: darkTheme ? "#fff" : "black",
-                }} 
-            className="wallet_content" >
+            fontWeight : "bolder",
+            color : "red" ,
+            fontFamily: "Inter, sans-serif"
+                }}  >
                 {modalContent}
             </p>
             
@@ -90,3 +86,5 @@ const AlertModal = () => {
   </div>
    )
       }
+
+export default AlertModal;
