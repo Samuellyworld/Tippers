@@ -13,6 +13,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from '../styles/global';
 import { theme } from '../styles/theme';
+import AlertModal from '../providers/AlertModal';
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
 	return (
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 				<MediaQueryProvider>
 					<ModalProvider>
 						<Component {...pageProps} />
+						<AlertModal/>
 					</ModalProvider>
 				</MediaQueryProvider>
 			</ThemeProvider>

@@ -4,6 +4,9 @@
 // importing relevant modules;
 import React, { useEffect, useState } from 'react';
 import { Typography } from '../../atoms/Typography';
+import { alert, close } from '../../../store/alert/alert.modal.reducer';
+import { RootState } from '../../../store/store';
+import {useDispatch} from 'react-redux';
 
 // importing stylings from styled-component
 import {
@@ -57,6 +60,9 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 		setPayout
 	} = props;
 
+	// dispatch an action to redux
+	const dispatch = useDispatch();
+
 	// initial state 
 	const [outcome, setOutcome]:any = useState([]);
 	const [chosenOutcome, setChosenOutcome] = useState(game === 'wheel' ? 'wheel' : '');
@@ -105,6 +111,24 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			return 'toss';
 		}
 	};
+
+	// button action
+	const spinGame = () => {
+        if(!stake.length) {
+			dispatch(alert('select an amount'));
+			setTimeout(() => {
+				dispatch(close(""))
+			  }, 2000)
+		 return;
+		} else if (!chosenOutcome.length) {
+			dispatch(alert('place a bet'));
+			setTimeout(() => {
+				dispatch(close(""))
+			  }, 2000)
+		 return;
+		} 
+		onSpin();
+	}
 
 	// JSX Building block
 	return (
@@ -178,8 +202,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 					) : null}
 					<ActionButton
 						spin={spin}
-
-						onClick={stake.length && connected && chosenOutcome.length && !spin ? onSpin : null}>
+						onClick={spinGame}>
 						{buttonText(game)}
 					</ActionButton>
 				</CardBody>
@@ -210,9 +233,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 						  color: "red"
 					  }}> unfortunately, you didn't win this round!</span>
 				  </Typography>
-					)
-					
-				}
+					)}
 					{!game.includes('wheel') && (
 						<ResultOutcome>
 							<Typography variant="p">chosen Outcome</Typography>

@@ -1,12 +1,12 @@
 export const TailsIcon = (): JSX.Element => {
 	return (
 		<svg width="207" height="206" viewBox="0 0 207 206" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="103.693" cy="103" r="102.371" fill="url(#paint0_linear_28_263)" stroke="#911DAC" stroke-width="1.25846"/>
-<circle cx="103.693" cy="103" r="97.5426" fill="url(#paint1_linear_28_263)" stroke="#AF1AAC" stroke-width="1.25846"/>
+<circle cx="103.693" cy="103" r="102.371" fill="url(#paint0_linear_28_263)" stroke="#911DAC" strokeWidth="1.25846"/>
+<circle cx="103.693" cy="103" r="97.5426" fill="url(#paint1_linear_28_263)" stroke="#AF1AAC" strokeWidth="1.25846"/>
 <g filter="url(#filter0_i_28_263)">
 <circle cx="103.693" cy="101.39" r="86.9063" fill="url(#paint2_linear_28_263)"/>
 </g>
-<circle cx="103.693" cy="101.39" r="86.5916" stroke="#7720AA" stroke-width="0.629229"/>
+<circle cx="103.693" cy="101.39" r="86.5916" stroke="#7720AA" strokeWidth="0.629229"/>
 <path d="M46.3598 115.046C46.0532 115.046 45.9 114.942 45.9 114.733V101.425H38.8327C38.5261 101.425 38.3728 101.337 38.3728 101.16V98.9179C38.3728 98.709 38.5261 98.6045 38.8327 98.6045H62.5759C62.8824 98.6045 63.0357 98.709 63.0357 98.9179V101.16C63.0357 101.337 62.8824 101.425 62.5759 101.425H55.4844V114.733C55.4844 114.942 55.3391 115.046 55.0487 115.046H46.3598Z" fill="white"/>
 <path d="M65.531 108.881C65.2375 108.881 65.0908 108.745 65.0908 108.474V98.9963C65.0908 98.7351 65.2375 98.6045 65.531 98.6045H71.3718C71.6653 98.6045 71.812 98.7351 71.812 98.9963V108.474C71.812 108.745 71.6653 108.881 71.3718 108.881H65.531Z" fill="white"/>
 <path d="M81.5585 105.249C81.2651 105.249 81.1183 105.114 81.1183 104.843V103.878C81.1183 103.607 81.2651 103.471 81.5585 103.471H83.7256C83.9964 103.471 84.2447 103.446 84.4705 103.396C84.7075 103.336 84.9107 103.245 85.08 103.125C85.2493 103.004 85.3847 102.849 85.4863 102.658C85.5879 102.457 85.6386 102.211 85.6386 101.919C85.6386 101.387 85.4524 100.995 85.08 100.744C84.7075 100.493 84.256 100.367 83.7256 100.367H80.1025V108.474C80.1025 108.745 79.9502 108.881 79.6454 108.881H73.8385C73.545 108.881 73.3983 108.745 73.3983 108.474V98.9963C73.3983 98.7351 73.545 98.6045 73.8385 98.6045H88.3136C88.8666 98.6045 89.3858 98.6798 89.8711 98.8305C90.3565 98.9812 90.7741 99.2022 91.124 99.4935C91.4851 99.7748 91.7673 100.126 91.9705 100.548C92.1736 100.97 92.2752 101.447 92.2752 101.98C92.2752 102.522 92.1623 102.999 91.9366 103.411C91.7109 103.813 91.4005 104.149 91.0054 104.421C90.6104 104.692 90.142 104.898 89.6003 105.038C89.0698 105.179 88.4942 105.249 87.8734 105.249H81.5585Z" fill="white"/>
@@ -16,8 +16,8 @@ export const TailsIcon = (): JSX.Element => {
 <path d="M153.859 108.881C153.565 108.881 153.418 108.745 153.418 108.474V107.51C153.418 107.238 153.565 107.103 153.859 107.103H163.356L155.382 103.773C154.953 103.592 154.604 103.406 154.333 103.215C154.062 103.014 153.847 102.808 153.689 102.597C153.543 102.376 153.441 102.145 153.385 101.904C153.339 101.663 153.317 101.407 153.317 101.136C153.317 100.804 153.385 100.488 153.52 100.187C153.655 99.8752 153.859 99.604 154.129 99.3729C154.412 99.1319 154.756 98.946 155.162 98.8154C155.58 98.6748 156.06 98.6045 156.601 98.6045H169.062C169.366 98.6045 169.519 98.7351 169.519 98.9963V99.9606C169.519 100.232 169.366 100.367 169.062 100.367H159.886L167.843 103.697C168.283 103.878 168.633 104.069 168.892 104.27C169.163 104.461 169.372 104.667 169.519 104.888C169.677 105.099 169.778 105.33 169.824 105.581C169.88 105.822 169.908 106.078 169.908 106.349C169.908 106.681 169.84 107.002 169.705 107.314C169.57 107.615 169.361 107.886 169.079 108.127C168.808 108.358 168.469 108.544 168.063 108.685C167.657 108.815 167.182 108.881 166.641 108.881H153.859Z" fill="white"/>
 <path d="M63.0356 112.992H169.908V115.047H63.0356V112.992Z" fill="white"/>
 <defs>
-<filter id="filter0_i_28_263" x="16.7864" y="11.9665" width="176.329" height="176.329" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter0_i_28_263" x="16.7864" y="11.9665" width="176.329" height="176.329" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="5.03383" dy="-6.29229"/>
@@ -27,19 +27,19 @@ export const TailsIcon = (): JSX.Element => {
 <feBlend mode="normal" in2="shape" result="effect1_innerShadow_28_263"/>
 </filter>
 <linearGradient id="paint0_linear_28_263" x1="179.059" y1="17.5854" x2="38.8409" y2="189.787" gradientUnits="userSpaceOnUse">
-<stop stop-color="#AF1AAC"/>
-<stop offset="0.552083" stop-color="#4A24AA"/>
-<stop offset="1" stop-color="#AF1AAC"/>
+<stop stopColor="#AF1AAC"/>
+<stop offset="0.552083" stopColor="#4A24AA"/>
+<stop offset="1" stopColor="#AF1AAC"/>
 </linearGradient>
 <linearGradient id="paint1_linear_28_263" x1="72.9111" y1="4.73514" x2="120.267" y2="220.798" gradientUnits="userSpaceOnUse">
 <stop/>
-<stop offset="0.5" stop-color="#AF1AAC"/>
+<stop offset="0.5" stopColor="#AF1AAC"/>
 <stop offset="1"/>
 </linearGradient>
 <linearGradient id="paint2_linear_28_263" x1="170.482" y1="26.5537" x2="48.9739" y2="174.616" gradientUnits="userSpaceOnUse">
-<stop stop-color="#7320AB"/>
-<stop offset="0.505208" stop-color="#40033F"/>
-<stop offset="1" stop-color="#7320AB"/>
+<stop stopColor="#7320AB"/>
+<stop offset="0.505208" stopColor="#40033F"/>
+<stop offset="1" stopColor="#7320AB"/>
 </linearGradient>
 </defs>
 </svg>
