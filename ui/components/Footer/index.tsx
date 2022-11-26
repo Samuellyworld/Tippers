@@ -15,13 +15,18 @@ const Footer = () => {
 			<SocialLink href="/">
 			 <img src='/assets/matic_logo.png' alt='polygon'/>
 			</SocialLink>
-			<SocialLink href="/">
-			 <img src='/assets/xend_finance.png' alt='xend finance'/>
-			</SocialLink>
 			<SocialLink href='/'>
 			  <img src='/assets/alchemy.png' alt='alchemy' style={{
 				  width: "2rem"
 			  }}/>
+			 </SocialLink>
+			 <SocialLink href='/'>
+			  <img src='/assets/chainlink.png' alt='alchemy' style={{
+				  width: "2rem"
+			  }}/>
+			 </SocialLink>
+			<SocialLink href="/">
+			 <img src='/assets/xend_finance.png' alt='xend finance'/>
 			</SocialLink>
 		</FooterContainer>
 	);

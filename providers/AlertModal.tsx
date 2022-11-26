@@ -11,11 +11,11 @@ import GridLoader from 'react-spinners/GridLoader';
 const AlertModal = () => {
     
     /// getting modal alert state
-    const modalAlert: any = useSelector(
+    const modalAlert:boolean = useSelector(
         (state: RootState) => state.alert.alertModal.openModal
       );
       // getting modal content alert state
-      const modalContent: any = useSelector(
+      const modalContent:string = useSelector(
         (state: RootState) => state.alert.alertModal.modalContent
       );
   // Starting React-dispatch to dispatch action in state in the component
@@ -75,8 +75,8 @@ const AlertModal = () => {
             padding : "1px", 
             fontSize : "11px",
             fontWeight : "bolder",
-            color : "red" ,
-            fontFamily: "Inter, sans-serif"
+            color : "#FE5F75",
+            fontFamily: "Chopsic, sans-serif"
                 }}  >
                 {modalContent}
             </p>
