@@ -11,8 +11,8 @@ export default {
 	component: Layout
 };
 
-const Template = (args: JSX.IntrinsicAttributes & { children: React.ReactNode; }) => {
-	return <Layout {...args} />;
+const Template = (args: JSX.IntrinsicAttributes & { children: React.ReactNode}) => {
+	return <Layout background={false} {...args} />;
 };
 
 export const Default : any = Template.bind({});
