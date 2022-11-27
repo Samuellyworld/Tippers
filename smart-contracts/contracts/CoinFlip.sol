@@ -12,6 +12,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     event CoinFlipResult(unit256 requestId, bool didWin);
     // check each user status
     struct CoinFlipStatus {
+        uint stakedAmount;
         uint256 fees;
         uint256 randomWord;
         address player;
@@ -33,7 +34,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     address constant vrfWrapperAddress = 0x99aFAf084eBA697E584501b8Ed2c0B37Dd136693;
 
     //entry fee [update on function on the frontend later on]
-    uint128 constant entryFees = 0.01 ether;
+    // uint128 constant entryFees = 0.01 ether;
    
    // gas limit to spare in LINK
     uint32 constant callbackGasLimit = 1_000_000;
@@ -49,12 +50,13 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
 
   }
     // flip function
-   function flip(CoinFlipSelection choice) 
+   function flip(CoinFlipSelection choice, uint amount) 
         external 
         payable 
         returns (uint256) {
+
      // if  user already pays the entry fee or staking fee
-       require(msg.value == entryFees, "Entry Fees not sent");
+       require(msg.value == amount, "Entry Fees not sent");
 
      // then request randomness
      uint256 requestId = requestRandomness(
@@ -65,6 +67,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
      
      // update coinflipstatus with the requestId
      statuses[requestId] = CoinFlipStatus({
+         stakedAmount: amount
          fees : VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit),
          randomWord : 0;
          player : msg.sender;
@@ -99,7 +102,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     // pay *2 of staked amount if user win
     if (statuses[requestId].choice == result) {
         statuses[request].didWin = true;
-        payable(statuses[requestId].player).transfer(entryFees * 2);
+        payable(statuses[requestId].player).transfer(statuses[requestId].stakedAmount * 2);
     }
     emit CoinFlipResult(requestId, statuses[requestId].didWin);
 
