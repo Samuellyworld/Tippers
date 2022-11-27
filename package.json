@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "contracts-install" : "cd smart-contracts && npm install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
