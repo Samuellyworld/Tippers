@@ -1,18 +1,28 @@
-import { ethers } from "hardhat";
 
+import hre from "hardhat"
+require("@nomiclabs/hardhat-etherscan");
+
+async function sleep(ms: number | undefined) {
+  return new Promise<void>((resolve : (value: void | PromiseLike<void>) => void) => {
+    setTimeout(() => resolve(), ms);
+  })
+}
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  //  const initialAmount = hre.ethers.utils.parseEther("0.0001")
+  const CoinFlip= await hre.ethers.getContractFactory("CoinFlip");
 
-  const lockedAmount = ethers.utils.parseEther("1");
+  // Start deployment, returning a promise that resolves to a contract object
+  const coinFlip = await CoinFlip.deploy();   
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  await coinFlip.deployed();
+  console.log("Contract deployed to address:", coinFlip.address);
 
-  await lock.deployed();
+  await sleep(45 * 1000)
+  await hre.run("verify:verify", {
+    address: coinFlip.address,
+    constructorArguments : []
+  })
 
-  console.log(`Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
