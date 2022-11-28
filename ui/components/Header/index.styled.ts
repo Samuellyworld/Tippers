@@ -8,6 +8,11 @@ export const HeaderContainer = styled.div`
 	justify-content: space-between;
 `;
 
+// connect wallet items and header styles
+export const connectButtonDropdown = styled.div`
+ position : relative
+`
+
 // button styling
 export const ConnectButton = styled.button`
 	width: 223px;
@@ -25,6 +30,7 @@ export const ConnectButton = styled.button`
 	justify-content: center;
 	cursor: pointer;
 	transition: all 0.4s ease-in-out;
+	gap: 0.8rem;
 	&:hover {
 		background: white;
 		color: #4a24aa;

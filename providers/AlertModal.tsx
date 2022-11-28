@@ -68,7 +68,7 @@ const AlertModal = () => {
             <span style={{
                    marginLeft: "5px",
                    color:"white",
-                   fontFamily: "Chopsic sans-serif"
+                   fontFamily: "Chopsic, sans-serif"
                }}> Alert </span>
           </p>      
           <p style={{
@@ -76,7 +76,7 @@ const AlertModal = () => {
             fontSize : "11px",
             fontWeight : "bolder",
             color : "#FE5F75",
-            fontFamily: "Chopsic, sans-serif"
+            fontFamily: "Inter, sans-serif"
                 }}  >
                 {modalContent}
             </p>

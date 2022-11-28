@@ -2,7 +2,8 @@
 // 17 U.S.C §§ 101-1511
 
 // importing  stylings from styled component
-import { ConnectButton, HeaderContainer, SVGLogo, TextLogo } from './index.styled';
+import { ConnectButton, HeaderContainer, SVGLogo, TextLogo, connectButtonDropdown } from './index.styled';
+import { AngleDownIcon } from '../../svgs';
 
 //header props types
 export interface HeaderProps {
@@ -24,8 +25,14 @@ const Header = (props: HeaderProps): JSX.Element => {
 			<SVGLogo href="/">
 				<img src="/assets/svg-logo.svg" alt="" />
 			</SVGLogo>
-
-			<ConnectButton>Connect Wallet</ConnectButton>
+            <div className='dropdown'>
+			 <ConnectButton>
+				Connect Wallet 
+			  <AngleDownIcon size='20' />
+			</ConnectButton>
+			
+			</div>
+		
 		</HeaderContainer>
 	);
 };
