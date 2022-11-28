@@ -22,7 +22,17 @@ const AlertModal = () => {
   const dispatch = useDispatch();
     
    return (
-    <div
+     <>
+     <style>
+       {`
+         @media screen and (max-width: 500px) {
+           .p {
+             font-size: 10px;
+           }
+         }
+       `}
+     </style>
+   <div
     style={{
       position : "fixed",
       zIndex : "1000",
@@ -38,6 +48,7 @@ const AlertModal = () => {
       transition: "all 1.4s ease-in-out",
       textTransform: "uppercase",
     }}
+    className="di"
   >
     
     <div
@@ -57,8 +68,9 @@ const AlertModal = () => {
               textTransform: "uppercase",
               borderBottom: "2px solid #eee",
               flexDirection: "row",
-              justifyContent: "space-between"
+              justifyContent: "space-between",
             }}
+            className="p"
           >
             <GridLoader    
                 color="#eee"
@@ -84,6 +96,8 @@ const AlertModal = () => {
         </div>
 
   </div>
+     </>
+   
    )
       }
 
