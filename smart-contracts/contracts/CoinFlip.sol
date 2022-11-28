@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity >=0.8.17;
 
 import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
 import "@chainlink/contracts/src/v0.8/VRFV2WrapperConsumerBase.sol";
@@ -9,7 +9,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     // what user request/bet
     event CoinFlipRequest(uint256 requestId);
     // what the result is
-    event CoinFlipResult(unit256 requestId, bool didWin);
+    event CoinFlipResult(uint256 requestId, bool didWin);
     // check each user status
     struct CoinFlipStatus {
         uint stakedAmount;
@@ -29,6 +29,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     mapping(uint256 => CoinFlipStatus) public statuses;
 
 
+
     // link contract address and wrappper address on polygon
     address constant linkAddress = 0x326C977E6efc84E512bB9C30f76E30c160eD06FB;
     address constant vrfWrapperAddress = 0x99aFAf084eBA697E584501b8Ed2c0B37Dd136693;
@@ -46,17 +47,15 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     uint16 constant requestConfirmations = 3;
     
   // VRF instance
-  constructor() payable VRFV2WrapperConsumerBase(linkAddress, vrfWrapperAddress) {
-
-  }
+  constructor()
+   payable 
+   VRFV2WrapperConsumerBase(linkAddress, vrfWrapperAddress) 
+   {}
     // flip function
-   function flip(CoinFlipSelection choice, uint amount) 
+   function flip(CoinFlipSelection choice) 
         external 
         payable 
         returns (uint256) {
-
-     // if  user already pays the entry fee or staking fee
-       require(msg.value == amount, "Entry Fees not sent");
 
      // then request randomness
      uint256 requestId = requestRandomness(
@@ -67,13 +66,13 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
      
      // update coinflipstatus with the requestId
      statuses[requestId] = CoinFlipStatus({
-         stakedAmount: amount
+         stakedAmount: msg.value,
          fees : VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit),
-         randomWord : 0;
-         player : msg.sender;
-         didWin : false;
-         fulfilled : false;
-         choice : choice;
+         randomWord : 0,
+         player : msg.sender,
+         didWin : false,
+         fulfilled : false,
+         choice : choice
      });
       
     // since it is a request emit coinflip request
@@ -82,27 +81,28 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
   }
 
    // we send the request ID to chainlink to get the random words
-  function fulfillRandomWords(uint256 requestid, uint256[] memory randomWords)
+  function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords)
        internal
        override
    {
     // check fees 
     require(statuses[requestId].fees > 0, "Request not found");
+
     //update status
-    statuses.[requestId].fulfilled = true;
-    statuses.[requestId].randomWord = randomWords[0];
+    statuses[requestId].fulfilled = true;
+    statuses[requestId].randomWord = randomWords[0];
 
     // set coinFlipselection with the random words chainlink generate for us
     CoinFlipSelection result = CoinFlipSelection.HEADS;
 
     // if even
     if(randomWords[0] % 2 == 0) {
-      result = CoinFlipSelection.TAILS
-    }
+      result = CoinFlipSelection.TAILS;
+     }
     // pay *2 of staked amount if user win
     if (statuses[requestId].choice == result) {
-        statuses[request].didWin = true;
-        payable(statuses[requestId].player).transfer(statuses[requestId].stakedAmount * 2);
+        statuses[requestId].didWin = true;
+        payable(statuses[requestId].player).transfer(msg.value * 2);
     }
     emit CoinFlipResult(requestId, statuses[requestId].didWin);
 
@@ -114,6 +114,9 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     view
     returns (CoinFlipStatus memory)
     {
-        return statuses[requestId]
+     return statuses[requestId];
     }
+
+  // send matic
+    receive() external payable {}
 }
