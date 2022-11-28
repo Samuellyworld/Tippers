@@ -10,6 +10,7 @@
     "contracts-install": "cd smart-contracts && npm install"
   },
   "dependencies": {
+    "@iconscout/react-unicons": "^1.1.6",
     "@reduxjs/toolkit": "^1.9.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
@@ -19,6 +20,7 @@
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
     "react": "18.2.0",
+    "react-copy-to-clipboard": "5.0.4",
     "react-dice-roll": "^1.2.2",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",

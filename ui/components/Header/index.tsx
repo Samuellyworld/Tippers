@@ -6,6 +6,10 @@ import {useDispatch} from 'react-redux';
 // importing  stylings from styled component
 import { ConnectButton, HeaderContainer, SVGLogo, TextLogo, connectButtonDropdown } from './index.styled';
 import { AngleDownIcon } from '../../svgs';
+// @ts-ignore
+import { CopyToClipboard } from "react-copy-to-clipboard";
+// @ts-ignore
+import { UilCopy } from '@iconscout/react-unicons' 
 
 //importing connect wallet functions
 import { metaMaskConnection } from '../../../utils/walletConnection';
@@ -16,6 +20,8 @@ const Header = (): JSX.Element => {
 const dispatch= useDispatch();
   // set address no persistion yet
   const [address, setAddress]:any = useState("")
+  //copying address
+  const [handleCopyAddress, setHandleCopyAddress] = useState(false);
 	return (
 		<HeaderContainer>
 			<TextLogo href="/">
@@ -29,14 +35,44 @@ const dispatch= useDispatch();
 				<img src="/assets/svg-logo.svg" alt="" />
 			</SVGLogo>
             <div className='dropdown'>
-			 <ConnectButton>
+			 <ConnectButton style={{
+				 cursor: address.includes("0x") && "unset"
+			 }}>
 			    { address.includes("0x") ? 
 				<span style={{
-                  textTransform: "capitalize"
+                  textTransform: "capitalize",
+				  display: "flex",
+				  alignItems: "center",
+				  justifyContent: "center"
 				}}> 
 				{address.substring(0,5)}...
 				{address.substring(38,42)} 
-				</span>
+				<CopyToClipboard text={address}>
+				 <span style={{
+					marginTop: "0.1rem",
+					cursor: "pointer"
+				}}
+				onClick={
+					() => {
+					setHandleCopyAddress(!handleCopyAddress)
+					setTimeout(() => {
+				      setHandleCopyAddress(false)
+					}, 1000);
+				}
+				}
+				>
+			{
+				 	 handleCopyAddress ? 
+					  <img src='/assets/copy.png' style={{width:'14px'}} />
+					   :
+					  <UilCopy  size="15"/>
+				
+			}
+				 </span>
+					 </CopyToClipboard>
+				 
+					 </span>
+			
 				: "Connect Wallet"}  
 				{
 					!address.includes('0x') &&<AngleDownIcon size='20' />  
