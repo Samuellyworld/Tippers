@@ -5,9 +5,7 @@
 import React from 'react';
 
 // importing component
-import Header, { HeaderProps } from '.';
-// importing mock data
-import { mockData_HeaderProps } from './MOCK_DATA';
+import Header from '.';
 
 // 
 export default {
@@ -15,11 +13,9 @@ export default {
 	component: Header
 };
 // template
-const Template = (args: JSX.IntrinsicAttributes & HeaderProps | any) => {
+const Template = (args: JSX.IntrinsicAttributes) => {
 	return <Header {...args} />;
 };
 // default
 export const Default: any = Template.bind({});
-Default.args = {
-	...mockData_HeaderProps
-};
+Default.args = {};
