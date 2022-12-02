@@ -7,7 +7,7 @@ import { Typography } from '../../atoms/Typography';
 import { alert, close } from '../../../store/alert/alert.modal.reducer';
 import { RootState } from '../../../store/store';
 import {useDispatch, useSelector} from 'react-redux';
-import { flip, getRequestId, getResult} from '../../../utils/interact';
+import { flip, getRequestId, getResult, roll, getDiceRequestId, getDiceResult} from '../../../utils/interact';
 
 
 // importing stylings from styled-component
@@ -22,6 +22,7 @@ import {
 	SelectedStake,
 	StakeGroup
 } from './index.styled';
+
 
 // staked card props types
 export interface StakeCardProps {
@@ -102,7 +103,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	//
 	useEffect(() => {
 		if (game.includes('dice')) {
-			setOutcome(['greater than 5', 'less than 5']);
+			setOutcome(['greater than 6', 'less than 6']);
 		} else {
 			setOutcome(['heads', 'tails']);
 		}
@@ -121,7 +122,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 
 	// button action
 	const spinGame = async () => {
-		console.log(address);
+		console.log(game);
 		if(!address) {
 			dispatch(alert('connect your wallet'));
 			setTimeout(() => {
@@ -142,17 +143,34 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			  }, 2000)
 		 return;
 		} 
-	const bet:number = chosenOutcome.includes('head') ? 1 : 0
-	const result= await flip(bet, Math.round(Number(stake)*10**15), address)
-	const id = await getRequestId(bet)
-	console.log(id, 'id')
-	setTimeout(async ()=> {
-		console.log(id, 'id contract')
-		await getResult(id, dispatch)
-		onSpin();
-		setDisabled(false);
-	}, 40000)
-	setDisabled(true);	
+	 if(game.includes('coins')) {
+		const bet:number = chosenOutcome.includes('head') ? 1 : 0
+		const result= await flip(bet, Math.round(Number(stake)*10**15), address)
+		const id = await getRequestId(bet)
+		console.log(id, 'id')
+		setTimeout(async ()=> {
+			console.log(id, 'id contract')
+			await getResult(id, dispatch)
+			onSpin();
+			setDisabled(false);
+		}, 40000)
+		setDisabled(true);	
+		} else if (game.includes('dice')) {
+            const bet:number = chosenOutcome.includes('greater') ? 0 : 1
+			const result= await roll(bet, Math.round(Number(stake)*10**15), address)
+		const id = await getDiceRequestId(bet)
+		console.log(id, 'id')
+		setTimeout(async ()=> {
+			console.log(id, 'id contract')
+			await getDiceResult(id, dispatch)
+			onSpin();
+			setDisabled(false);
+		}, 40000)
+		setDisabled(true);	
+		} else if(game.includes('wheel')) {
+
+		}
+	
 	}
 
 	// JSX Building block
