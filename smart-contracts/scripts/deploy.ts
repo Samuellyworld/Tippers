@@ -23,6 +23,21 @@ async function main() {
     constructorArguments : []
   })
 
+  
+   //  const initialAmount = hre.ethers.utils.parseEther("0.0001")
+   const Dice= await hre.ethers.getContractFactory("Dice");
+
+   // Start deployment, returning a promise that resolves to a contract object
+   const dice = await Dice.deploy();   
+ 
+   await dice.deployed();
+   console.log("Contract deployed to address:", dice.address);
+ 
+   await sleep(45 * 1000)
+   await hre.run("verify:verify", {
+     address: dice.address,
+     constructorArguments : []
+   })
 }
 
 // We recommend this pattern to be able to use async/await everywhere
