@@ -2,7 +2,7 @@
 // 17 U.S.C §§ 101-1511
 
 //
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 // importing  stylings from styled component
 import { ConnectButton, HeaderContainer, SVGLogo, TextLogo, connectButtonDropdown } from './index.styled';
 import { AngleDownIcon } from '../../svgs';
@@ -14,12 +14,14 @@ import { UilCopy } from '@iconscout/react-unicons'
 //importing connect wallet functions
 import { metaMaskConnection } from '../../../utils/walletConnection';
 import { useState } from 'react';
+import { RootState } from '../../../store/store';
 // JSX Component
 const Header = (): JSX.Element => {
 	
 const dispatch= useDispatch();
   // set address no persistion yet
-  const [address, setAddress]:any = useState("")
+//   const [address, setAddress]:any = useState("")
+const address = useSelector((state:RootState) => state.address.address)
   //copying address
   const [handleCopyAddress, setHandleCopyAddress] = useState(false);
 	return (
@@ -36,9 +38,9 @@ const dispatch= useDispatch();
 			</SVGLogo>
             <div className='dropdown'>
 			 <ConnectButton style={{
-				 cursor: address.includes("0x") && "unset"
-			 }}>
-			    { address.includes("0x") ? 
+				 cursor: address && "unset"
+			  }}>
+			    { address ? 
 				<span style={{
                   textTransform: "capitalize",
 				  display: "flex",
@@ -75,13 +77,13 @@ const dispatch= useDispatch();
 			
 				: "Connect Wallet"}  
 				{
-					!address.includes('0x') &&<AngleDownIcon size='20' />  
+					!address &&<AngleDownIcon size='20' />  
 				}
 			  
 			</ConnectButton>
-			{ !address.includes("0x")  &&
+			{ !address&&
 			 <div className='dropDownConnect__items'>
-				<div className='dropDownConnect_item' onClick={() => metaMaskConnection(dispatch, setAddress)}>
+				<div className='dropDownConnect_item' onClick={() => metaMaskConnection(dispatch)}>
 					<div className='dropDownConnect_img'>
                       <img src="/assets/metamask.png" alt='metamask logo' />
 					</div>

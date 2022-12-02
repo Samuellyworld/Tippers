@@ -3,14 +3,15 @@
 
 import web3 from 'web3';
 import {alert, close} from '../store/alert/alert.modal.reducer';
+import {setUserAddress} from '../store/address/address.reducer';
 // declaring global module
 declare let window: any;
 declare let ethereum: any;
 
 interface connectwalletTypes {
-    metaMaskConnection: (dispatch: any, setAddress: any) => void
+    metaMaskConnection: (dispatch: any) => void
 }
-export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (dispatch, setAddress) => {
+export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (dispatch) => {
   dispatch(alert("connecting to metamask"))
   if(ethereum.chainId !== "0x13881") {
     try {
@@ -24,9 +25,11 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
             
                 // Log public address of user
                 console.log(accounts[0])
-                setAddress(accounts[0])
-            
+        
+                dispatch(setUserAddress(accounts[0]))
+
                 dispatch(alert('Wallet Connected'));
+
                 setTimeout(() => {
                     dispatch(close(""))
                   }, 2000)
@@ -62,7 +65,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
 
         // Log public address of user
         console.log(accounts[0])
-        setAddress(accounts[0])
+        dispatch(setUserAddress(accounts[0]))
         dispatch(alert('Wallet Connected'));
         setTimeout(() => {
             dispatch(close(""))
@@ -83,7 +86,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
     setTimeout(() => {
         dispatch(close(""))
       }, 2000)
-   } else {
+    } else {
     dispatch(alert('Error connecting..'));
     setTimeout(() => {
         dispatch(close(""))
