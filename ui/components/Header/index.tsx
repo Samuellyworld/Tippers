@@ -49,7 +49,7 @@ const dispatch= useDispatch();
 				{address.substring(38,42)} 
 				<CopyToClipboard text={address}>
 				 <span style={{
-					marginTop: "0.1rem",
+					margin: "0.2rem 0.1rem 0.1rem",
 					cursor: "pointer"
 				}}
 				onClick={
@@ -61,13 +61,13 @@ const dispatch= useDispatch();
 				}
 				}
 				>
-			{
+	     		{
 				 	 handleCopyAddress ? 
 					  <img src='/assets/copy.png' style={{width:'14px'}} />
 					   :
 					  <UilCopy  size="15"/>
 				
-			}
+		    	}
 				 </span>
 					 </CopyToClipboard>
 				 

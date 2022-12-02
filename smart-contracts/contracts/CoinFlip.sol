@@ -102,7 +102,7 @@ contract CoinFlip is VRFV2WrapperConsumerBase {
     // pay *2 of staked amount if user win
     if (statuses[requestId].choice == result) {
         statuses[requestId].didWin = true;
-        payable(statuses[requestId].player).transfer(msg.value * 2);
+        payable(statuses[requestId].player).transfer(statuses[requestId].stakedAmount * 2);
     }
     emit CoinFlipResult(requestId, statuses[requestId].didWin);
 

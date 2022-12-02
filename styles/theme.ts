@@ -151,7 +151,7 @@ const colors: ColorType = {
 	online: '#86BB71',
 	offline: '#E38968',
 	me: '#94C2ED'
-} as ColorType;
+} as ColorType ;
 
 const gradients: GradientType = {
 	blackToTransparent: `linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0) 100%)`

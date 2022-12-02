@@ -49,7 +49,7 @@ const GameLayout = (props: GamesProps): JSX.Element => {
 		scrollToElement(gameRef);
 		setTimeout(() => {
 			setShow(true);
-		}, 10000);
+		}, 5000);
 	};
 	const again = () => {
 		setSpin(false);

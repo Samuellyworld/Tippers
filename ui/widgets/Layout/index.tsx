@@ -9,6 +9,8 @@ import Header from '../../components/Header';
 // import WebFont from 'webfontloader' and stylings from styled-component;
 import { FooterWrapper, HeaderWrapper, LayoutWrapper, Main } from './index.styled';
 
+
+
 // JSX Component
 const Layout = ({ children, background }: { children: React.ReactNode, background: boolean }): JSX.Element => {
 	return (

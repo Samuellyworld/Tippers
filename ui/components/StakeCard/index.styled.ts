@@ -133,7 +133,7 @@ export const ResultWrapper = styled.div`
 `;
 
 // action button styles
-export const ActionButton = styled.div<{ inverse?: boolean; spin?: boolean; onClick: any} >`
+export const ActionButton = styled.div<{ inverse?: boolean; spin?: boolean; onClick: any; disabled: any} >`
 	background: #ff7f40;
 	box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
@@ -165,6 +165,13 @@ export const ActionButton = styled.div<{ inverse?: boolean; spin?: boolean; onCl
     border: 1px solid gray;
     background: transparent;
 	`}
+	${({ disabled}) =>
+     disabled &&
+	`
+		color: gray;
+border: 1px solid gray;
+background: transparent;
+`}
 	@media (max-width: 576.98px) {
 		height: 40px;
 		margin-top: 1em;
