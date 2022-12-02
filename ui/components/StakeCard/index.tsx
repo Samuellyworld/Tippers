@@ -6,8 +6,9 @@ import React, { useEffect, useState } from 'react';
 import { Typography } from '../../atoms/Typography';
 import { alert, close } from '../../../store/alert/alert.modal.reducer';
 import { RootState } from '../../../store/store';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { flip, getRequestId, getResult} from '../../../utils/interact';
+
 
 // importing stylings from styled-component
 import {
@@ -71,6 +72,9 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	// set disabled
 	const [disabled, setDisabled] = useState(false);
 
+	//set address
+	const address = useSelector((state:RootState)=> state.address.address)
+
 	// result
 	useEffect(() => {
 		console.log(coin, 'coin')
@@ -117,7 +121,15 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 
 	// button action
 	const spinGame = async () => {
-        if(!stake.length) {
+		console.log(address);
+		if(!address) {
+			dispatch(alert('connect your wallet'));
+			setTimeout(() => {
+				dispatch(close(""))
+			  }, 2000)
+		 return;
+		}
+       else if(!stake.length) {
 			dispatch(alert('select an amount'));
 			setTimeout(() => {
 				dispatch(close(""))
@@ -130,8 +142,9 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			  }, 2000)
 		 return;
 		} 
-	const result= await flip(1)
-	const id = await getRequestId(1)
+	const bet:number = chosenOutcome.includes('head') ? 1 : 0
+	const result= await flip(bet, Math.round(Number(stake)*10**15), address)
+	const id = await getRequestId(bet)
 	console.log(id, 'id')
 	setTimeout(async ()=> {
 		console.log(id, 'id contract')

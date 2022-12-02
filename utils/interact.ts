@@ -20,23 +20,23 @@ export const CoinFlipContract = new web3.eth.Contract(
 );
 
 // bet coin flip
-export const flip = async (choice: number) => {
+export const flip = async (choice: number, stake:number, address:string) => {
     //set up transaction parameters
+    console.log(stake, 'stake')
  const transactionParameters = {
     to: contractAddress, // Required except during contract publications.
-    from: "0xbf0b20ebffb5d87431b5936ee501beff99f91030", // must match user's active address.
-    value: web3.utils.toWei("0.000001", "ether"),
+    from: address, // must match user's active address.
+    value: stake.toString(),
     data: CoinFlipContract.methods.flip(choice).encodeABI(),
     
   };
-  //sign the transaction
+  // sign the transaction
   try {
     const txHash = await window.ethereum.request({
       method: "eth_sendTransaction",
       params: [transactionParameters],
     }) 
         console.log(txHash, 'hash')
-   
     return {
         status: "successful",
     }
