@@ -7,6 +7,7 @@ import { Typography } from '../../atoms/Typography';
 import { alert, close } from '../../../store/alert/alert.modal.reducer';
 import { RootState } from '../../../store/store';
 import {useDispatch} from 'react-redux';
+import { flip, getRequestId, getResult} from '../../../utils/interact';
 
 // importing stylings from styled-component
 import {
@@ -67,6 +68,8 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	const [outcome, setOutcome]:any = useState([]);
 	const [chosenOutcome, setChosenOutcome] = useState(game === 'wheel' ? 'wheel' : '');
 	// console.log(stake, connected, game, result);
+	// set disabled
+	const [disabled, setDisabled] = useState(false);
 
 	// result
 	useEffect(() => {
@@ -113,7 +116,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	};
 
 	// button action
-	const spinGame = () => {
+	const spinGame = async () => {
         if(!stake.length) {
 			dispatch(alert('select an amount'));
 			setTimeout(() => {
@@ -127,7 +130,16 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			  }, 2000)
 		 return;
 		} 
+	const result= await flip(1)
+	const id = await getRequestId(1)
+	console.log(id, 'id')
+	setTimeout(async ()=> {
+		console.log(id, 'id contract')
+		await getResult(id, dispatch)
 		onSpin();
+		setDisabled(false);
+	}, 40000)
+	setDisabled(true);	
 	}
 
 	// JSX Building block
@@ -201,6 +213,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 						</OutcomeWrapper>
 					) : null}
 					<ActionButton
+					    disabled={disabled}
 						spin={spin}
 						onClick={spinGame}>
 						{buttonText(game)}
@@ -240,7 +253,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 							<Typography variant="p">{chosenOutcome}</Typography>
 						</ResultOutcome>
 					)}
-					<ActionButton onClick={again} inverse={true}>
+					<ActionButton onClick={again} inverse={true} disabled={disabled}>
 						{payout === 0 ? 'try again' : 'play again'}
 					</ActionButton>
 				</ResultWrapper>

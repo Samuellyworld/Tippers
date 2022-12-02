@@ -1,5 +1,10 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
+// importing styled from styled-components
 import styled from 'styled-components';
 
+// flip  coins container styling
 export const FlipCoinsContainer = styled.div`
 	p {
 		margin-top: 50px;
@@ -21,6 +26,7 @@ export const FlipCoinsContainer = styled.div`
 	}
 `;
 
+// flip coin styling
 export const FlipCoin = styled.div`
 	@keyframes flipHeads {
 		from {
@@ -40,6 +46,7 @@ export const FlipCoin = styled.div`
 	}
 `;
 
+// coin styling
 export const Coin = styled.div<{ coinResult: string }>`
 	position: relative;
 	margin: 0 auto;
@@ -55,18 +62,18 @@ export const Coin = styled.div<{ coinResult: string }>`
 	${({ coinResult }) =>
 		coinResult === 'heads' &&
 		`
-		animation: flipHeads 0.5s ease-out forwards;
-			animation-iteration-count: 20;
+		animation: flipHeads 0.4s ease-out forwards;
+			animation-iteration-count: 13;
 	`}
 
 	${({ coinResult }) =>
 		coinResult === 'tails' &&
 		`
-		animation: flipTails 0.5s ease-out forwards;
-			animation-iteration-count: 20;
+		animation: flipTails 0.4s ease-out forwards;
+			animation-iteration-count: 13;
 	`}
 `;
-
+// tails styling
 export const Tails = styled.div`
 	width: 100%;
 	height: 100%;
@@ -75,6 +82,8 @@ export const Tails = styled.div`
 	top: 0;
 	left: 0;
 `;
+
+// heads stylings
 export const Heads = styled.div`
 	width: 100%;
 	height: 100%;

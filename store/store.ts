@@ -4,11 +4,13 @@
 //importing relevant modules + functions
 import { configureStore } from "@reduxjs/toolkit";
 import alertModalReducer from "./alert/alert.modal.reducer";
+import resultReducer from "./result/result.reducer";
 
 //creating store
 export const store = configureStore({
     reducer: {   
-     alert: alertModalReducer
+     alert: alertModalReducer,
+     result: resultReducer
     }
     });
 
