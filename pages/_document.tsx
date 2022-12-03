@@ -50,10 +50,9 @@ export default class MyDocument extends Document {
 			<Html>
 				<Head>
 					<link rel="icon" href="/assets/svg-logo.svg" type="image/jpg" sizes="16x16" />
-                    <title> Tippers 🎲🃏</title>
                     <meta
                         name="description"
-                        content="Tippers is a gaming platform on the Polygon blockchain."
+                        content="Tippers is a gaming platform built on the Polygon blockchain."
                     />
                     <meta property="og:type" content="website" />
                     <meta
@@ -63,17 +62,18 @@ export default class MyDocument extends Document {
                     <meta property="og:image" content="/assets/svg-logo.svg" />
                     <meta
                         property="og:description"
-                        content="Tippers is a gaming platform on the Polygon blockchain."
+                        content="Tippers is a gaming platform built on the Polygon blockchain."
                     />
                     <meta
                         name="twitter:title"
-                        content="Tippers is a gaming platform on the Polygon blockchain."
+                        content="Tippers is a gaming platform built on the Polygon blockchain."
                     />
                     <meta
                         name="twitter:description"
-                        content="Tippers is a gaming platform on the Polygon blockchain.."
+                        content="Tippers is a gaming platform built on the Polygon blockchain.."
                     />
 				</Head>
+                <title> Tippers 🎲🃏</title>
 				<body>
 					<Main />
 					<NextScript />

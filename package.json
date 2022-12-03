@@ -12,6 +12,8 @@
   "dependencies": {
     "@alch/alchemy-web3": "~1.1.9",
     "@iconscout/react-unicons": "^1.1.6",
+    "@maticnetwork/maticjs": "^3.5.0",
+    "@maticnetwork/walletconnect-provider": "^0.0.1-beta.1",
     "@reduxjs/toolkit": "^1.9.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
