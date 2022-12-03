@@ -34,6 +34,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
                 console.log(accounts[0])
                 //store and alert
                 dispatch(setUserAddress(accounts[0]))
+                localStorage.setItem("wallet-type", "metamask");
                 dispatch(alert('Wallet Connected'));
 
                 setTimeout(() => {
@@ -72,6 +73,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
         // Log public address of user
         console.log(accounts[0])
         dispatch(setUserAddress(accounts[0]))
+        localStorage.setItem("wallet-type", "metamask");
         dispatch(alert('Wallet Connected'));
         setTimeout(() => {
             dispatch(close(""))
@@ -105,5 +107,15 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
 }
 
 export const walletConnect = () => {
+
+}
+
+export const walletDisconnect = (dispatch: (arg0: { payload: string; type: `${string}/close` | `${string}/alert` | `${string}/setUserAddress`;  }) => void) => {
+  localStorage.clear()
+  dispatch(alert('wallet disconnected'))
+  dispatch(setUserAddress(''))
+  setTimeout(() => {
+    dispatch(close(""))
+  }, 2000) 
 
 }

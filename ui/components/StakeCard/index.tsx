@@ -152,7 +152,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	 if(game.includes('coins')) {
 		const bet:number = chosenOutcome.includes('head') ? 1 : 0
 		dispatch(alert('Processing transaction... 🔂'))
-		const result= await flip(bet, Math.round(Number(stake)*10**15), address)
+		const result= await flip(bet, (Number(stake)), address)
 		 if(result.hash) {
 			 setTxHash(result.hash)
 			const id = await getRequestId(bet)
@@ -176,7 +176,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 		} else if (game.includes('dice')) {
             const bet:number = chosenOutcome.includes('greater') ? 0 : 1
 			dispatch(alert('Processing transaction... 🔂'))
-		const result= await roll(bet, Math.round(Number(stake)*10**15), address)
+		const result= await roll(bet, (Number(stake)), address)
 		if(result.hash) {
 			setTxHash(result.hash)
 			const id = await getDiceRequestId(bet)
@@ -201,7 +201,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	//wheel
 		} else if(game.includes('wheel')) {
 			dispatch(alert('Processing Transaction... 🔂'))
-			const result= await spinWheel(Math.round(Number(stake)*10**15), address)
+			const result= await spinWheel((Number(stake)), address)
 			if(result.hash) {
 				setTxHash(result.hash)
 				dispatch(close(''))
@@ -299,8 +299,11 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 					) : null}
 					<ActionButton
 					    disabled={disabled}
+						style={{
+							cursor: disabled ? "not-allowed" : "cursor"
+						}}
 						spin={spin}
-						onClick={spinGame}>
+						onClick={!disabled && spinGame}>
 						{buttonText(game)}
 					</ActionButton>
 				</CardBody>

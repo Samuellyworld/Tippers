@@ -7,6 +7,7 @@ declare let ethereum: any;
 
 //importing relevant module
 import { Dispatch, AnyAction } from "@reduxjs/toolkit";
+import { ethers } from "ethers";
 import Web3 from "web3";
 import { setResult } from "../store/result/result.reducer";
 
@@ -48,10 +49,11 @@ export const flip = async (choice: number, stake:number, address:string) => {
  const transactionParameters = {
     to: coinContractAddress, // Required except during contract publications.
     from: address, // must match user's active address.
-    value: stake.toString(),
+    value: ethers.utils.parseUnits(stake.toString(), "ether")._hex,
     data: CoinFlipContract.methods.flip(choice).encodeABI(),
     
   };
+  console.log(transactionParameters.value)
   // sign the transaction
   try {
     const txHash = await window.ethereum.request({
@@ -90,7 +92,7 @@ export const roll = async (choice: number, stake:number, address:string) => {
 const transactionParameters = {
   to: diceContractAddress, // Required except during contract publications.
   from: address, // must match user's active address.
-  value: stake.toString(),
+  value: ethers.utils.parseUnits(stake.toString(), "ether")._hex,
   data: DiceRollContract.methods.roll(choice).encodeABI(),
   
 };
@@ -130,7 +132,7 @@ export const spinWheel = async (stake:number, address:string) => {
 const transactionParameters = {
   to: wheelContractAddress, // Required except during contract publications.
   from: address, // must match user's active address.
-  value: stake.toString(),
+  value: ethers.utils.parseUnits(stake.toString(), "ether")._hex,
   data: WheelSpinContract.methods.spin().encodeABI(),
   
 };

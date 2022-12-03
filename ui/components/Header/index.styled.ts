@@ -15,7 +15,7 @@ export const HeaderContainer = styled.div`
 		background: purple;
 		border-radius: 8px;
 		display: none;
-		border: 1px solid blue;
+		border: 1px;
 		width: 223px;
 
 		@media (max-width: 576.98px) {
@@ -42,9 +42,6 @@ export const HeaderContainer = styled.div`
 			font-size: 0.5rem;
 			}
 		}
-	  }
-	  .dropDownConnect_item {
-		border-bottom: 1px solid var(--border-default);
 	  }
 	  .dropDownConnect_item:last-child {
 		border-bottom: none;
