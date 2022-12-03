@@ -1,3 +1,7 @@
+// Copyright Tippers 🎲🃏 2022
+// 17 U.S.C §§ 101-1511
+
+// importing relevant modules
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Dice from 'react-dice-roll';
@@ -5,9 +9,10 @@ import { Typography } from '../../../atoms/Typography';
 import { DiceViewIcon } from '../../../svgs';
 
 import { DiceContainer, DiceRoll } from './index.styled';
-import { stat } from 'fs';
+
 import { RootState } from '../../../../store/store';
 
+// roll  a dice
 const RollDice = ({
 	spin,
 	setResult
@@ -16,7 +21,7 @@ const RollDice = ({
 	spin: boolean;
 }): JSX.Element => {
 	
-
+// set result and faces
 	const result = useSelector((state:RootState) => state.result.result )
 	const faces = [
 		'https://svgshare.com/i/oZP.svg',
@@ -54,7 +59,7 @@ const RollDice = ({
 	useEffect(() => {
 		console.log(result, 'result')
 	})
-	
+	// JSX building
 	return (
 		<DiceContainer>
 			{!spin ? (

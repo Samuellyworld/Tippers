@@ -13,10 +13,7 @@ import { LandingpageContainer, LandingpageComponent1, StartButton, LandingpageCo
 
 const Landingpage = ():JSX.Element => {
     const [play]:any= useSound('/assets/sound/enter_game.mp3');
-    const redirect = () => {
-        
-    }
-    const setRedirect =  () => {
+    const setRedirect:()=> void =  () => {
         play()
         setTimeout(() => {
             window.location.pathname = '/games'
