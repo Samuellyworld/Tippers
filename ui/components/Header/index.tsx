@@ -103,12 +103,12 @@ const address = useSelector((state:RootState) => state.address.address)
 					</div>
 					<p>MetaMask</p>
 				</div>
-				<div className='dropDownConnect_item'>
+				{/* <div className='dropDownConnect_item'>
 					<div className='dropDownConnect_img'>
                       <img src="/assets/walletConnect.png" alt='wallet connect logo' />
 					</div>
 					<p>WalletConnect</p>
-				</div>
+				</div> */}
 			 </div>
 			:
 				address &&  
