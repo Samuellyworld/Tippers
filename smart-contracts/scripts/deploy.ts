@@ -23,7 +23,6 @@ async function main() {
     constructorArguments : []
   })
 
-  
    //  const initialAmount = hre.ethers.utils.parseEther("0.0001")
    const Dice= await hre.ethers.getContractFactory("Dice");
 
@@ -36,6 +35,20 @@ async function main() {
    await sleep(45 * 1000)
    await hre.run("verify:verify", {
      address: dice.address,
+     constructorArguments : []
+   })
+
+   const Wheel= await hre.ethers.getContractFactory("Wheel");
+
+   // Start deployment, returning a promise that resolves to a contract object
+   const wheel = await Wheel.deploy();   
+ 
+   await wheel.deployed();
+   console.log("Contract deployed to address:", wheel.address);
+ 
+   await sleep(45 * 1000)
+   await hre.run("verify:verify", {
+     address: wheel.address,
      constructorArguments : []
    })
 }
