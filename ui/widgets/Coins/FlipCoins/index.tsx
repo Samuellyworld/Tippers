@@ -21,13 +21,14 @@ const FlipCoins = ({
 }): JSX.Element => {
 	// set result
 
-	const result:boolean|null = useSelector((state:RootState) => state.result.didWin)
+	const result = useSelector((state:RootState) => state.result.result)
+	console.log(result, 'result')
 	// inital coin result state
 	const [coinResult, setCoinResult] = useState('');
 	// coin toss mathematics
 	const coinToss = () => {
 		console.log(result, 'coinresult')
-		if (result) {
+		if (result?.didWin) {
 			setResult('heads');
 			setCoinResult('heads');
 		} else {

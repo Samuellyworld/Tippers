@@ -63,8 +63,8 @@ export const getRequestId= async (choice:any) => {
 export const getResult = async (id : any, dispatch: Dispatch<AnyAction>) => {
   console.log(id, 'iddd')
   const status = await CoinFlipContract.methods.statuses(id).call()
-  dispatch(setResult(status.didWin))
-  console.log(status.didWin, 're')
+  dispatch(setResult(status))
+  console.log(status, 're')
   console.log(status, id, 'status')
 }
 
@@ -106,7 +106,7 @@ export const getDiceRequestId= async (choice:any) => {
 export const getDiceResult = async (id : any, dispatch: Dispatch<AnyAction>) => {
 console.log(id, 'iddd')
 const status = await DiceRollContract.methods.statuses(id).call()
-// dispatch(setResult(status.didWin))
+dispatch(setResult(status))
 console.log(status.didWin, 're')
 console.log(status, id, 'status')
 }

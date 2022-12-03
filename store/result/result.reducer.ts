@@ -7,12 +7,12 @@ import { RESULT_ACTION_TYPES } from './result.types';
 
 // user types
 interface resultTypes {
-   didWin :  boolean | null,
+   result :  any,
 }
 
 // initial state
 const initialState: resultTypes= {
-  didWin : null
+  result : null
 }
 
 // setting user actions
@@ -20,8 +20,8 @@ export const resultSlice= createSlice({
   name: RESULT_ACTION_TYPES.RESULT_TYPE,
   initialState,
   reducers : {
-   setResult : (state :any, action :PayloadAction<boolean>) => {
-    state.didWin = action.payload 
+   setResult : (state :any, action :PayloadAction<any>) => {
+    state.result = action.payload 
    },
   
   }
