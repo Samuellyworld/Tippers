@@ -324,7 +324,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 								marginLeft: "-5px"
 								// marginTop: "1rem"
 							}}/>
-							<a href={`https://mumbai.polygonscan.com/tx/${txHash}`}>(Polygonscan)</a>
+							<a href={`https://mumbai.polygonscan.com/tx/${txHash}`} target='_blank'>(Polygonscan)</a>
 							</span>
 						</Typography>
 					) : (

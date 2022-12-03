@@ -134,7 +134,6 @@ const transactionParameters = {
   from: address, // must match user's active address.
   value: ethers.utils.parseUnits(stake.toString(), "ether")._hex,
   data: WheelSpinContract.methods.spin().encodeABI(),
-  
 };
 // sign the transaction
 try {
