@@ -38,10 +38,12 @@ const RollDice = ({
 		}
 	};
 	useEffect(() => {
-		const res = Number(result.randomWord1) + Number(result.randomWord2);
-		// console.log('res', res);
-		setResult(res.toString());
-	}, [result]);
+		if(spin) {
+			const res = Number(result.randomWord1) + Number(result.randomWord2);
+			// console.log('res', res);
+			setResult(res.toString());
+		}
+	}, [spin]);
 
 	useEffect(() => {
 		if (spin) {
