@@ -13,8 +13,10 @@ const web3 = createAlchemyWeb3(alchemyKey);
 
 const coinContractABI= require('../providers/contract-abis/CoinFlip.json');
 const diceContractABI = require('../providers/contract-abis/Dice.json');
+const wheelContractABI = require('../providers/contract-abis/Wheel.json');
 const coinContractAddress:string|undefined= process.env.NEXT_PUBLIC_COIN_CONTRACT_ADDRESS;
 const diceContractAddress:string|undefined = process.env.NEXT_PUBLIC_DICE_CONTRACT_ADDRESS;
+const wheelContractAddress:string|undefined = process.env.NEXT_PUBLIC_WHEEL_CONTRACT_ADDRESS;
 
 // coinFlip contract
 export const CoinFlipContract = new web3.eth.Contract(
@@ -26,6 +28,12 @@ export const CoinFlipContract = new web3.eth.Contract(
 export const DiceRollContract = new web3.eth.Contract(
   diceContractABI,
   diceContractAddress
+);
+
+//wheel spin
+export const WheelSpinContract = new web3.eth.Contract(
+  wheelContractABI,
+  wheelContractAddress
 );
 
 // bet coin flip
@@ -104,9 +112,51 @@ export const getDiceRequestId= async (choice:any) => {
 }
 
 export const getDiceResult = async (id : any, dispatch: Dispatch<AnyAction>) => {
-console.log(id, 'iddd')
-const status = await DiceRollContract.methods.statuses(id).call()
-dispatch(setResult(status))
-console.log(status.didWin, 're')
-console.log(status, id, 'status')
+ console.log(id, 'iddd')
+ const status = await DiceRollContract.methods.statuses(id).call()
+ dispatch(setResult(status))
+ console.log(status.didWin, 're')
+ console.log(status, id, 'status')
+}
+
+
+///WHEEL INSTANCES
+export const spinWheel = async (stake:number, address:string) => {
+  //set up transaction parameters
+  console.log(stake, 'stake')
+const transactionParameters = {
+  to: wheelContractAddress, // Required except during contract publications.
+  from: address, // must match user's active address.
+  value: web3.utils.toWei('0.0000001', 'ether'),
+  data: WheelSpinContract.methods.spin().encodeABI(),
+  
+};
+// sign the transaction
+try {
+  const txHash = await window.ethereum.request({
+    method: "eth_sendTransaction",
+    params: [transactionParameters],
+  }) 
+      console.log(txHash, 'hash')
+  return {
+      status: "successful",
+  }
+} catch (error:any) {
+  return {
+    status: "😥 " + error.message,
+  };
+}
+}
+
+
+export const getWheelRequestId= async () => {
+  return await WheelSpinContract.methods.spin().call()
+}
+
+export const getWheelResult = async (id : any, dispatch: Dispatch<AnyAction>) => {
+ console.log(id, 'iddd')
+ const status = await WheelSpinContract.methods.statuses(id).call()
+ dispatch(setResult(status))
+ console.log(status.didWin, 're')
+ console.log(status, id, 'status')
 }

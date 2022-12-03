@@ -7,7 +7,12 @@ import { Typography } from '../../atoms/Typography';
 import { alert, close } from '../../../store/alert/alert.modal.reducer';
 import { RootState } from '../../../store/store';
 import {useDispatch, useSelector} from 'react-redux';
-import { flip, getRequestId, getResult, roll, getDiceRequestId, getDiceResult} from '../../../utils/interact';
+import { flip, getRequestId, 
+	     getResult, roll, 
+		 getDiceRequestId, getDiceResult,
+		 spinWheel, getWheelRequestId, 
+		 getWheelResult
+		} from '../../../utils/interact';
 
 
 // importing stylings from styled-component
@@ -168,7 +173,16 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 		}, 40000)
 		setDisabled(true);	
 		} else if(game.includes('wheel')) {
-           
+			const result= await spinWheel(Math.round(Number(stake)*10**15), address)
+		const id = await getWheelRequestId()
+		console.log(id, 'id')
+		setTimeout(async ()=> {
+			console.log(id, 'id contract')
+			await getWheelResult(id, dispatch)
+			onSpin();
+			setDisabled(false);
+		}, 40000)
+		setDisabled(true);	
 		}
 	}
 

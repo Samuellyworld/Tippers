@@ -6,7 +6,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
-
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../store/store';
 // importing typography
 import { Typography } from '../../../atoms/Typography';
 
@@ -28,11 +29,13 @@ const SpinWheel = ({
 	setResult: (arg: string) => void;
 	spin: boolean;
 }): JSX.Element => {
+	//selector
+	const result = useSelector((state:RootState)=> state.result.result)
 	// initial state
 	const [selectedItem, setSelectedItem]: any = useState(null);
 	const selectItem = () => {
 		// if (selectedItem === null) {
-		const selectedItem = Math.floor(Math.random() * items.length);
+		const selectedItem = result.randomWord
 		// console.log('hmmm');
 		if (onSelectItem) {
 			onSelectItem(selectedItem);
