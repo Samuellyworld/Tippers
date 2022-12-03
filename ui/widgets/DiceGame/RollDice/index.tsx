@@ -1,9 +1,12 @@
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Dice from 'react-dice-roll';
 import { Typography } from '../../../atoms/Typography';
 import { DiceViewIcon } from '../../../svgs';
 
 import { DiceContainer, DiceRoll } from './index.styled';
+import { stat } from 'fs';
+import { RootState } from '../../../../store/store';
 
 const RollDice = ({
 	spin,
@@ -12,38 +15,44 @@ const RollDice = ({
 	setResult: (arg: string) => void;
 	spin: boolean;
 }): JSX.Element => {
-	// const [coinResult, setCoinResult] = useState('');
-	const [diceResult, setDiceResult] : any= useState(null);
-	const [dice2Result, setDice2Result] : any = useState(null);
+	
+
+	const result = useSelector((state:RootState) => state.result.result )
 	const faces = [
-		'https://res.cloudinary.com/ademolamadelewi/image/upload/v1648393627/Group_145_5ba9c1ef9a.svg',
-		'https://res.cloudinary.com/ademolamadelewi/image/upload/v1648393627/Group_144_eebb73e965.svg',
-		'https://res.cloudinary.com/ademolamadelewi/image/upload/v1648393627/Group_142_6ce82c4eef.svg',
-		'https://res.cloudinary.com/ademolamadelewi/image/upload/v1648393627/Group_143_d29c9f00ab.svg',
-		'https://res.cloudinary.com/ademolamadelewi/image/upload/v1648346946/Group_142_02582f6d97.svg',
-		'https://res.cloudinary.com/ademolamadelewi/image/upload/v1648346946/Group_143_00c8842579.svg'
+		'https://svgshare.com/i/oZP.svg',
+		'https://svgshare.com/i/oZj.svg',
+		'https://svgshare.com/i/oYw.svg',
+		'https://svgshare.com/i/oZv.svg',
+		'https://svgshare.com/i/oZa.svg',
+		'https://svgshare.com/i/oZb.svg'
 	];
 
 	const dice : MutableRefObject<null> | any= useRef(null);
 	const dice2 : MutableRefObject<null> | any = useRef(null);
 	// console.log();
 	const rollDice = () => {
+       
 		if (dice && dice2) {
 			dice.current?.rollDice();
 			dice2.current?.rollDice();
 		}
 	};
 	useEffect(() => {
-		const res = Number(diceResult) + Number(dice2Result);
+		const res = Number(result.randomWord1) + Number(result.randomWord2);
 		// console.log('res', res);
 		setResult(res.toString());
-	}, [diceResult, dice2Result]);
+	}, [result]);
 
 	useEffect(() => {
 		if (spin) {
 			rollDice();
 		}
 	}, [spin]);
+
+	useEffect(() => {
+		console.log(result, 'result')
+	})
+	
 	return (
 		<DiceContainer>
 			{!spin ? (
@@ -55,16 +64,19 @@ const RollDice = ({
 				<DiceRoll>
 					<Dice
 						ref={dice}
-						rollingTime={10000}
+						rollingTime={4000}
 						size={100}
-						onRoll={(value) => setDiceResult(value)}
+						cheatValue={result.randomWord1}
+						// onRoll={(diceResult) => setDiceResult(diceResult)}
 						faces={faces}
 					/>
 					<Dice
 						ref={dice2}
 						size={100}
-						rollingTime={10000}
-						onRoll={(value) => setDice2Result(value)}
+						rollingTime={4000}
+						cheatValue={result.randomWord2}
+						// defaultValue={dice2Result}
+						// onRoll={(dice2Result) => setDice2Result(dice2Result)}
 						faces={faces}
 					/>
 				</DiceRoll>

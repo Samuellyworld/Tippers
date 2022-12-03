@@ -89,10 +89,10 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			}
 		} else if (game.includes('dice')) {
 			// console.log('chosen', chosenOutcome);
-			if (chosenOutcome.includes('greater') && Number(result) > 5) {
+			if (chosenOutcome.includes('greater') && Number(result) > 6) {
 				setPayout(parseInt(stake) * 2);
 				console.log(payout, 'payout')
-			} else if(chosenOutcome.includes('less') && Number(result) < 5){
+			} else if(chosenOutcome.includes('less') && Number(result) < 6){
 				setPayout(parseInt(stake) * 2);
 			} else {
 				setPayout(parseInt(stake) * 0);
@@ -168,9 +168,8 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 		}, 40000)
 		setDisabled(true);	
 		} else if(game.includes('wheel')) {
-
+           
 		}
-	
 	}
 
 	// JSX Building block
