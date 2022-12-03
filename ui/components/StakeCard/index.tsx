@@ -72,6 +72,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	const dispatch = useDispatch();
 
 	// initial state 
+	const [txHash, setTxHash] = useState('')
 	const [outcome, setOutcome]:any = useState([]);
 	const [chosenOutcome, setChosenOutcome] = useState(game === 'wheel' ? 'wheel' : '');
 	// console.log(stake, connected, game, result);
@@ -81,7 +82,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	//set address
 	const address = useSelector((state:RootState)=> state.address.address)
 
-	// result
+	// use result from smart contract to set frontend payout
 	useEffect(() => {
 		console.log(coin, 'coin')
 		if (game.includes('wheel')) {
@@ -105,7 +106,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 		}
 	}, [result]);
 
-	//
+	//set outcome
 	useEffect(() => {
 		if (game.includes('dice')) {
 			setOutcome(['greater than 6', 'less than 6']);
@@ -127,7 +128,6 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 
 	// button action
 	const spinGame = async () => {
-		console.log(game);
 		if(!address) {
 			dispatch(alert('connect your wallet'));
 			setTimeout(() => {
@@ -148,41 +148,82 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			  }, 2000)
 		 return;
 		} 
+		// coins
 	 if(game.includes('coins')) {
 		const bet:number = chosenOutcome.includes('head') ? 1 : 0
+		dispatch(alert('Processing transaction... 🔂'))
 		const result= await flip(bet, Math.round(Number(stake)*10**15), address)
-		const id = await getRequestId(bet)
-		console.log(id, 'id')
-		setTimeout(async ()=> {
-			console.log(id, 'id contract')
-			await getResult(id, dispatch)
-			onSpin();
-			setDisabled(false);
-		}, 40000)
-		setDisabled(true);	
+		 if(result.hash) {
+			 setTxHash(result.hash)
+			const id = await getRequestId(bet)
+			setTimeout(async ()=> {
+				console.log(id, 'id contract')
+				await getResult(id, dispatch)
+				onSpin();
+				setDisabled(false);
+				dispatch(close(''))
+			}, 40000)
+			dispatch(alert('Processing Tnx blocks.. ⌛️'))
+			setDisabled(true);	
+		 } else {
+			dispatch(alert('😰 Error Processing... '))
+			setTimeout(() => {
+				dispatch(close(""))
+			  }, 2000)
+			  return;
+		 }
+		// dicd
 		} else if (game.includes('dice')) {
             const bet:number = chosenOutcome.includes('greater') ? 0 : 1
-			const result= await roll(bet, Math.round(Number(stake)*10**15), address)
-		const id = await getDiceRequestId(bet)
-		console.log(id, 'id')
-		setTimeout(async ()=> {
-			console.log(id, 'id contract')
-			await getDiceResult(id, dispatch)
-			onSpin();
-			setDisabled(false);
-		}, 40000)
-		setDisabled(true);	
+			dispatch(alert('Processing transaction... 🔂'))
+		const result= await roll(bet, Math.round(Number(stake)*10**15), address)
+		if(result.hash) {
+			setTxHash(result.hash)
+			const id = await getDiceRequestId(bet)
+			console.log(id, 'id')
+			setTimeout(async ()=> {
+				console.log(id, 'id contract')
+				await getDiceResult(id, dispatch)
+				onSpin();
+				setDisabled(false);
+				dispatch(close(''));
+			}, 40000)
+			dispatch(alert('Processing Tnx blocks.. ⌛️'))
+			setDisabled(true);	
+			
+		} else {
+			dispatch(alert('😰 Error Processing... '))
+			setTimeout(() => {
+				dispatch(close(""))
+			  }, 2000)
+			  return;
+		 }
+	//wheel
 		} else if(game.includes('wheel')) {
+			dispatch(alert('Processing Transaction... 🔂'))
 			const result= await spinWheel(Math.round(Number(stake)*10**15), address)
-		const id = await getWheelRequestId()
-		console.log(id, 'id')
-		setTimeout(async ()=> {
-			console.log(id, 'id contract')
-			await getWheelResult(id, dispatch)
-			onSpin();
-			setDisabled(false);
-		}, 40000)
-		setDisabled(true);	
+			if(result.hash) {
+				setTxHash(result.hash)
+				dispatch(close(''))
+				const id = await getWheelRequestId()
+				console.log(id, 'id')
+			setTimeout(async ()=> {
+				console.log(id, 'id contract')
+				await getWheelResult(id, dispatch)
+				onSpin();
+				setDisabled(false);
+				dispatch(close(''));
+			}, 40000)
+			dispatch(alert('Processing Tnx blocks.. ⌛️'))
+			setDisabled(true);
+			} else {
+				dispatch(alert('😰 Error Processing... '))
+				setTimeout(() => {
+					dispatch(close(""))
+				  }, 2000)
+				  return;
+			 }
+			
 		}
 	}
 
@@ -280,7 +321,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 								marginLeft: "-5px"
 								// marginTop: "1rem"
 							}}/>
-							<a href="/">(Polygonscan)</a>
+							<a href={`https://mumbai.polygonscan.com/tx/${txHash}`}>(Polygonscan)</a>
 							</span>
 						</Typography>
 					) : (
