@@ -5,7 +5,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store/store";
-import HashLoader from 'react-spinners/HashLoader';
+import GridLoader from 'react-spinners/GridLoader';
 
 // JSX Component AlertModal
 const AlertModal = () => {
@@ -72,9 +72,9 @@ const AlertModal = () => {
             }}
             className="p"
           >
-            <HashLoader    
+            <GridLoader    
                 color="#eee"
-                size={17}
+                size={2.5}
                 speedMultiplier={0.4} 
                 />
             <span style={{
