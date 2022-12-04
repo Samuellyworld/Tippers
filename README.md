@@ -53,8 +53,8 @@ Tippers architectural flowchart.
 - [Samuel Tosin](https://github.com/Samuellyworld)
 
 ## 🔂  Smart Contracts Documentation + Tippers Platform Local Installation.
-- [Smart Contracts](https://github.com/Samuellyworld/Tippers/tree/main/smart-contracts)
-- [Local Installation](/INSTALLATION.md)
+- [**Smart Contracts**](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/README.md)
+- [**Local Installation**](/INSTALLATION.md)
 
 
 ## 🔗 Links.
