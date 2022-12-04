@@ -4,7 +4,7 @@ Tippers is a gaming platform built on the Polygon blockchain.
 ![image](https://i.postimg.cc/bwbQ1VJv/Landing-4-1.png)
 
 ## 🙋🏽 About.
-Tippers is programmed to be the best gaming platform on the Polygon blockchain. It is a decentralized casino that leverages on the Polygon Blockchain Technology, to provide innovative casino games to users. Our platform features will include provably fair games, streamlined deposits and withdrawals using the Polygon Blockchain Technology. 
+Tippers is programmed to be the best gaming platform on the Polygon blockchain. It is a decentralized casino that leverages on the Polygon Blockchain Technology, to provide innovative casino games to users. The platform features will include provably fair games, streamlined deposits and withdrawals using the Polygon Blockchain Technology. 
 
 https://user-images.githubusercontent.com/68618796/205475080-061bb1e6-7718-4c80-bc99-3b66af592f6e.mov
 
@@ -40,14 +40,14 @@ Tippers architectural flowchart.
 - Creating an NFT collection for the tippers platform on the polygon blockchain.
 
 ## 💻 Tools and Technologies.
-- NextJs - UI framework
-- TypeScript - static/strong typing 
-- Styled Components - UI styling
-- SASS - UI styling
-- Solidity - smart contract language
-- Chainlink - Get Random Words 
-- Alchemy API - connection to nodes
-- Polygon L2 - Contracts deployed Polygon L2
+- NextJs : UI framework
+- TypeScript : static/strong typing 
+- Styled Components : UI styling
+- SASS : UI styling
+- Solidity : smart contract language
+- ChainlinkVRF : Get Random Words 
+- Alchemy API : connection to nodes
+- Polygon L2 : Contracts deployed on Polygon L2
 
 ## 🫡 Team
 - [Samuel Tosin](https://github.com/Samuellyworld)
