@@ -53,7 +53,7 @@ export const flip = async (choice: number, stake:number, address:string) => {
     data: CoinFlipContract.methods.flip(choice).encodeABI(),
     
   };
-  console.log(transactionParameters.value)
+  
   // sign the transaction
   try {
     const txHash = await window.ethereum.request({

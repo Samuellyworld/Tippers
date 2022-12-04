@@ -36,7 +36,6 @@ const SpinWheel = ({
 	const selectItem = () => {
 		// if (selectedItem === null) {
 		const selectedItem = result.randomWord
-		// console.log('hmmm');
 		if (onSelectItem) {
 			onSelectItem(selectedItem);
 		}
@@ -48,17 +47,13 @@ const SpinWheel = ({
 		// }
 	};
 	useEffect(() => {
-		console.log(selectedItem, 'select')
 		if (spin) {
-			// console.log('everybody');
 			selectItem();
 		} else {
 			setSelectedItem(null);
-			// console.log('LOOK', selectedItem);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [spin]);
-	// console.log(selectedItem);
 	const spinning = selectedItem !== null ? 'spinning' : '';
 
 	return (

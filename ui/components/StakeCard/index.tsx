@@ -75,7 +75,6 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 	const [txHash, setTxHash] = useState('')
 	const [outcome, setOutcome]:any = useState([]);
 	const [chosenOutcome, setChosenOutcome] = useState(game === 'wheel' ? 'wheel' : '');
-	// console.log(stake, connected, game, result);
 	// set disabled
 	const [disabled, setDisabled] = useState(false);
 
@@ -84,7 +83,6 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 
 	// use result from smart contract to set frontend payout
 	useEffect(() => {
-		console.log(coin, 'coin')
 		if (game.includes('wheel')) {
 			setPayout(parseFloat(result) * parseInt(stake));
 		} else if (game.includes('coins')) {
@@ -94,10 +92,8 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 				setPayout(parseInt(stake) * 0);
 			}
 		} else if (game.includes('dice')) {
-			// console.log('chosen', chosenOutcome);
 			if (chosenOutcome.includes('greater') && Number(result) > 6) {
 				setPayout(parseInt(stake) * 2);
-				console.log(payout, 'payout')
 			} else if(chosenOutcome.includes('less') && Number(result) < 6){
 				setPayout(parseInt(stake) * 2);
 			} else {
@@ -157,7 +153,6 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 			 setTxHash(result.hash)
 			const id = await getRequestId(bet)
 			setTimeout(async ()=> {
-				console.log(id, 'id contract')
 				await getResult(id, dispatch)
 				onSpin();
 				setDisabled(false);
@@ -180,9 +175,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 		if(result.hash) {
 			setTxHash(result.hash)
 			const id = await getDiceRequestId(bet)
-			console.log(id, 'id')
 			setTimeout(async ()=> {
-				console.log(id, 'id contract')
 				await getDiceResult(id, dispatch)
 				onSpin();
 				setDisabled(false);
@@ -206,9 +199,7 @@ const StakeCard = (props: StakeCardProps): JSX.Element => {
 				setTxHash(result.hash)
 				dispatch(close(''))
 				const id = await getWheelRequestId()
-				console.log(id, 'id')
 			setTimeout(async ()=> {
-				console.log(id, 'id contract')
 				await getWheelResult(id, dispatch)
 				onSpin();
 				setDisabled(false);
