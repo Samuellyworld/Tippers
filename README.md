@@ -28,7 +28,7 @@ The NFT collection artwork would be in the PFP category and holders of the NFT w
 
 Get [matic testnet](https://mumbaifaucet.com/) to test the games, make sure you have added mumbai to your metamask wallet.
 
-## 🌊 Architectural Flow
+## 🌊 Architectural Flow.
 Tippers architectural flowchart.
 
 ![image](https://i.postimg.cc/jjzNWMcr/Flowchart-1-1.png)
@@ -49,10 +49,15 @@ Tippers architectural flowchart.
 - Alchemy API : connection to nodes
 - Polygon L2 : Contracts deployed on Polygon L2
 
-## 🫡 Team
+## 🫡 Team.
 - [Samuel Tosin](https://github.com/Samuellyworld)
 
-## 🔗 Links
+## 🔂  Smart Contracts Documentation + Tippers Platform Local Installation.
+- [Smart Contracts](https://github.com/Samuellyworld/Tippers/tree/main/smart-contracts)
+- [Local Installation](/INSTALLATION.md)
+
+
+## 🔗 Links.
 - [Live](https://tippers.netlify.app)
 - [Figma](https://www.figma.com/file/ACnmyX2yz9VYkTtsauABOY/Tippers?node-id=0%3A1)
 - [Youtube](https://www.youtube.com/watch?v=KJa1Rbz6n1w)
