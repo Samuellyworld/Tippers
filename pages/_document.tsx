@@ -1,7 +1,6 @@
 // Copyright Tippers 🎲🃏 2022
 // 17 U.S.C §§ 101-1511
 
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
