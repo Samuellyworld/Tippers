@@ -16,11 +16,10 @@ interface connectwalletTypes {
 
 // metamask connection
 export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (dispatch) => {
-  // user alert
-  dispatch(alert("connecting to metamask"))
+
 
   // check if polygon network then request
-  if(ethereum.chainId !== "0x13881") {
+  if(typeof window !== "undefined" && typeof window.ethereum !== "undefined" && window.ethereum.chainId !== "0x13881") {
     try {
         dispatch(alert("switching to polygon"))
         ethereum.request({
@@ -67,7 +66,9 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
             dispatch(close(""))
           }, 2000)
       }
-  } else if(ethereum.chainId === "0x13881") {
+  } else if( typeof window !== "undefined" && typeof window.ethereum !== "undefined" && window.ethereum.chainId === "0x13881" ) {
+      // user alert
+  dispatch(alert("connecting to metamask"))
     ethereum.request({method: "eth_requestAccounts"}).then((accounts: any[]) => {
 
         // Log public address of user
@@ -89,7 +90,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
             }, 2000)
         })
   }
-   else if(!window.ethereum){
+   else if(typeof window.ethereum == "undefined" && typeof window.ethereum == "undefined"){
      //alert user
     dispatch(alert('Install Metamask'));
     setTimeout(() => {
