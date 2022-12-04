@@ -22,12 +22,11 @@ const FlipCoins = ({
 	// set result
 
 	const result = useSelector((state:RootState) => state.result.result)
-	console.log(result, 'result')
+
 	// inital coin result state
 	const [coinResult, setCoinResult] = useState('');
 	// coin toss mathematics
 	const coinToss = () => {
-		console.log(result, 'coinresult')
 		if (result?.didWin) {
 			setResult('heads');
 			setCoinResult('heads');
@@ -46,7 +45,6 @@ const FlipCoins = ({
 
 	useEffect(() => {
         result
-		console.log(result, 'coinresult effect')
 	},[result])
 
 	// building block and logic

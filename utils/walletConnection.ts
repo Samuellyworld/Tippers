@@ -29,8 +29,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
             dispatch(alert("Connecting wallet."))
             ethereum.request({method: "eth_requestAccounts"}).then((accounts: any[]) => {
             
-                // Log public address of user
-                console.log(accounts[0])
+                // 
                 //store and alert
                 dispatch(setUserAddress(accounts[0]))
                 localStorage.setItem("wallet-type", "metamask");
@@ -40,8 +39,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
                     dispatch(close(""))
                   }, 2000)
                 // Get network ID
-                let n = ethereum.chainId // 
-                console.log(n, "chainId")  ;
+                
               }).catch((err: any) => { 
                   console.log(err) 
                   dispatch(alert('Error connecting'));
@@ -71,8 +69,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
   dispatch(alert("connecting to metamask"))
     ethereum.request({method: "eth_requestAccounts"}).then((accounts: any[]) => {
 
-        // Log public address of user
-        console.log(accounts[0])
+      
         dispatch(setUserAddress(accounts[0]))
         localStorage.setItem("wallet-type", "metamask");
         dispatch(alert('Wallet Connected'));
@@ -80,8 +77,7 @@ export const metaMaskConnection:connectwalletTypes["metaMaskConnection"] = (disp
             dispatch(close(""))
           }, 2000)
         // Get network ID
-        let n = ethereum.chainId // 
-        console.log(n, "chainId")  ;
+        
       }).catch((err: any) => { 
           console.log(err) 
           dispatch(alert('Error connecting..'));

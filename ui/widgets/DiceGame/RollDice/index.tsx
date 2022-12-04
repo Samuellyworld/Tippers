@@ -34,7 +34,6 @@ const RollDice = ({
 
 	const dice : MutableRefObject<null> | any= useRef(null);
 	const dice2 : MutableRefObject<null> | any = useRef(null);
-	// console.log();
 	const rollDice = () => {
        
 		if (dice && dice2) {
@@ -45,7 +44,6 @@ const RollDice = ({
 	useEffect(() => {
 		if(spin) {
 			const res = Number(result.randomWord1) + Number(result.randomWord2);
-			// console.log('res', res);
 			setResult(res.toString());
 		}
 	}, [spin]);
