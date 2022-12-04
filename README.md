@@ -6,6 +6,8 @@ Tippers is a gaming platform built on the Polygon blockchain.
 ## 🙋🏽 About.
 Tippers is programmed to be the best gaming platform on the Polygon blockchain. It is a decentralized casino that leverages on the Polygon Blockchain Technology, to provide innovative casino games to users. Our platform features will include provably fair games, streamlined deposits and withdrawals using the Polygon Blockchain Technology. 
 
+https://user-images.githubusercontent.com/68618796/205475080-061bb1e6-7718-4c80-bc99-3b66af592f6e.mov
+
  ## 💫 Problem Description.
 Blockchain is an innovative ecosystem that has garnered a lot of attention and developments over the years. The technology however is still under utilized. Less than 3% of the world's population use the Blockchain. 
 
@@ -60,23 +62,17 @@ Tippers architectural flowchart.
 
 [Polygon: Wallets](https://wiki.polygon.technology/docs/develop/metamask/overview)
 
-[Alchemy: Smart Contracts](https://docs.alchemy.com/docs/how-to-code-and-deploy-a-polygon-smart-contract)
-
-[Alchemy: Examples](https://docs.alchemy.com/docs/integrating-your-smart-contract-with-the-frontend)
-
 [ChainLink: Randomness](https://docs.chain.link/vrf/v2/introduction)
 
 [ChainLink: Examples](https://docs.chain.link/vrf/v2/subscription/examples/get-a-random-number)
 
+[Alchemy: Smart Contracts](https://docs.alchemy.com/docs/how-to-code-and-deploy-a-polygon-smart-contract)
+
+[Alchemy: Examples](https://docs.alchemy.com/docs/integrating-your-smart-contract-with-the-frontend)
+
+
+
 ## 🪪 License.
 
 Copyright Tippers 2022 [**MIT LICENSE**](/LICENSE)
-
-
-
-
-
-
-
-
 
