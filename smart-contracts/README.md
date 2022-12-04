@@ -1,4 +1,4 @@
-# 📃 Smart contract README.md
+# 📃 Smart Contracts
 This contains the detailed  explanation of  what tippers platform smart contracts do.
 
 ## 🪪 Contracts Addresses
@@ -17,7 +17,7 @@ This contains the detailed  explanation of  what tippers platform smart contract
 
 ## 🔂 What Each Contract Does
 
-- CoinFlip.sol - Sends a Request to ChainLink VRF to get a random number, check if the random number is a modulus of 2 i.e ``randomNumber % 2``. Set the selection depending on what the user picks either by  ``1 or 0`` that is an Head or tail. if the random number  chainlink vrf gives is a modulus of 2 then the ``enum`` is set to ``0`` if otherwise ``1``, if the user's choice is equal to any of the selection, the user gets two times of his/her stake. [see more](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/contracts/CoinFlip.sol)
+**CoinFlip.sol** - Sends a Request to ChainLink VRF to get a random number, check if the random number is a modulus of 2 i.e ``randomNumber % 2``. Set the selection depending on what the user picks either by  ``1 or 0`` that is an Head or tail. if the random number  chainlink vrf gives is a modulus of 2 then the ``enum`` is set to ``0`` if otherwise ``1``, if the user's choice is equal to any of the selection, the user gets two times of his/her stake. [see more](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/contracts/CoinFlip.sol)
 
 | Title | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -26,7 +26,7 @@ This contains the detailed  explanation of  what tippers platform smart contract
 | `Selection` | `Object` | **event**. set the enum selection base on the random number result|
 
 
-- Dice.sol - Sends a Request to ChainLink VRF to get two random numbers within the range of ``1-6``, the selection is set depending on what the user picks either by  ``1 or 0`` that is greater than 6 or less than 6. if the addition of what chainlink vrf random numbers gives us is greater than 6 then the ``enum`` is set to ``0`` if otherwise ``1``, if the user's choice is equal to any of the selection, the user gets two times of his/her stake. [see more](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/contracts/Dice.sol)
+**Dice.sol** - Sends a Request to ChainLink VRF to get two random numbers within the range of ``1-6``, the selection is set depending on what the user picks either by  ``1 or 0`` that is greater than 6 or less than 6. if the addition of what chainlink vrf random numbers gives us is greater than 6 then the ``enum`` is set to ``0`` if otherwise ``1``, if the user's choice is equal to any of the selection, the user gets two times of his/her stake. [see more](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/contracts/Dice.sol)
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -34,7 +34,7 @@ This contains the detailed  explanation of  what tippers platform smart contract
 | `choice` | `number` | **Required**. user bet choice |
 | `Selection` | `Object` | **event**. set the enum selection base on the random numbers result |
 
-- Wheel.sol - Sends a Request to chainlink VRF to get a random number between the range of ``0 to 6``. if the number is ``0 or 4``, the user get exactly the same amount staked. if the number is between ``1 or 5``, the users get two times of his or her stake. if the number is ``3``, the user get 1/2 of his/her stake. [see more](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/contracts/Wheel.sol)
+**Wheel.sol** - Sends a Request to chainlink VRF to get a random number between the range of ``0 to 6``. if the number is ``0 or 4``, the user get exactly the same amount staked. if the number is between ``1 or 5``, the users get two times of his or her stake. if the number is ``3``, the user get 1/2 of his/her stake. [see more](https://github.com/Samuellyworld/Tippers/blob/main/smart-contracts/contracts/Wheel.sol)
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
