@@ -2,11 +2,11 @@
 This contains the detailed  explanation of  what tippers platform smart contracts do.
 
 ## 🪪 Contracts Addresses
-- Coin Flip - "https://mumbai.polygonscan.com/address/0xEd35035c67d41e39f6112D1BeD5A0F94DA311D68#code" 
+- Coin Flip - https://mumbai.polygonscan.com/address/0xEd35035c67d41e39f6112D1BeD5A0F94DA311D68#code
 
-- Dice Roll - "https://mumbai.polygonscan.com/address/0xCd9deE10EeCf230D50Bb0d9a6a14dD6ec754EB3e#code"
+- Dice Roll - https://mumbai.polygonscan.com/address/0xCd9deE10EeCf230D50Bb0d9a6a14dD6ec754EB3e#code
 
-- Wheel Spin - "https://mumbai.polygonscan.com/address/0x8e9d001B6D5ee4C013803ed69691E16fDa25227D#code"
+- Wheel Spin - https://mumbai.polygonscan.com/address/0x8e9d001B6D5ee4C013803ed69691E16fDa25227D#code
 
 ## 🎈 Tools & Technologies
 - Solidity 
