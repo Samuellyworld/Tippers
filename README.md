@@ -51,9 +51,9 @@ Tippers architectural flowchart.
 - [Samuel Tosin](https://github.com/Samuellyworld)
 
 ## 🔗 Links
-- [Live]()
+- [Live](https://tippers.netlify.app)
 - [Figma](https://www.figma.com/file/ACnmyX2yz9VYkTtsauABOY/Tippers?node-id=0%3A1)
-- [Youtube]()
+- [Youtube](https://www.youtube.com/watch?v=KJa1Rbz6n1w)
 
 ## Developer Resources.
 [Polygon: Nodes with Alchemy](https://wiki.polygon.technology/docs/develop/network-details/access-node-alchemy)
