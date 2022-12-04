@@ -12,8 +12,6 @@
   "dependencies": {
     "@alch/alchemy-web3": "~1.1.9",
     "@iconscout/react-unicons": "^1.1.6",
-    "@maticnetwork/maticjs": "^3.5.0",
-    "@maticnetwork/walletconnect-provider": "^0.0.1-beta.1",
     "@reduxjs/toolkit": "^1.9.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
@@ -36,7 +34,9 @@
     "styled-system": "^5.1.5",
     "typescript": "4.8.4",
     "use-sound": "^4.0.1",
-    "web3": "1.7.4"
+    "web3": "1.7.4",
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.2"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
