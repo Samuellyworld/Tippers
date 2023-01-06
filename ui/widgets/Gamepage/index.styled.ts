@@ -42,6 +42,9 @@ export const Top = styled.div`
 	@media (max-width: 576.98px) {
 		width: 100%;
 		margin-top: 1em;
+		svg {
+			width : 1.5rem !important;
+		}
 		h3 {
 			font-size: 10px;
 		}

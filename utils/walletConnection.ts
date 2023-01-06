@@ -112,7 +112,10 @@ export const walletDisconnect = (dispatch: (arg0: { payload: string; type: `${st
   dispatch(alert('wallet disconnected'))
   dispatch(setUserAddress(''))
   setTimeout(() => {
-    dispatch(close(""))
+    dispatch(alert('disconnect tippers on metamask'))
   }, 2000) 
+  setTimeout(() => {
+    dispatch(close(""))
+  }, 4000) 
 
 }
