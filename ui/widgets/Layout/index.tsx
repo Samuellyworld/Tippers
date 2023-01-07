@@ -5,6 +5,7 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import Scroll from '../../components/Scroll';
 
 // import WebFont from 'webfontloader' and stylings from styled-component;
 import { FooterWrapper, HeaderWrapper, LayoutWrapper, Main } from './index.styled';
@@ -17,6 +18,7 @@ const Layout = ({ children, background }: { children: React.ReactNode, backgroun
 		<LayoutWrapper style={{
 			backgroundImage: background ? "url('/assets/pageBG.svg')" : "url('/assets/Landing.png')"
 		}}>
+			<Scroll/>
 			<HeaderWrapper>
 				<Header />
 			</HeaderWrapper>

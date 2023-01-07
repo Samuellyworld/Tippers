@@ -9,11 +9,11 @@ interface wordsInterface {
     word : string
 }
 // JSX Component
-const Scroll = () : JSX.Element=> {
+const Scroll = () : JSX.Element => {
     const words:wordsInterface[]= [
         {
             character: "🎲 ",
-            word : "Creating an incredible gaming experience on the polygon blockchain"
+            word : "Play and earn"
         },
         {
             character: "🔄",
@@ -22,6 +22,18 @@ const Scroll = () : JSX.Element=> {
         {
             character: "🎈",
             word : "Play and earn"
+        },
+        {
+            character: "🎲 ",
+            word : "Tippers is live on testnet"
+        },
+        {
+            character: "🎈",
+            word : "Play and earn"
+        },
+        {
+            character: "🎲 ",
+            word : "Tippers is live on testnet"
         },
     ]
     return (

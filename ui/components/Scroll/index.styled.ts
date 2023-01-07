@@ -4,26 +4,30 @@ import styled from 'styled-components';
 // scroll container
 export const ScrollContainer = styled.div`
     z-index: 10;
-    top: -3px;
     display: flex;
+    margin-top: -22px;
     height: 24px;
-    width: 100%;
-    padding: 10px 0px;
+    width: 100vw;
     flex-direction: row;
     overflow: hidden;
     white-space: nowrap;
-    position: fixed;
+    position: relative;
+    margin-left: -29px;
 `
 
 export const ScrollTextHolder = styled.div`
-   margin-top: -22px;
+   margin-top: -13px;
    display: flex;
    flex-direction: row;
 `
 
 export const ScrollTextGroup = styled.div`
-    animation: 20s linear 0s infinite normal none running scrolling;
-    display: inline-block;
+    animation: 15s linear 0s infinite normal none running scrolling;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
 
     @keyframes scrolling {
         0% {
@@ -36,17 +40,14 @@ export const ScrollTextGroup = styled.div`
 
       span {
         display: inline-block;
-        width: 4px;
-        height: 4px;
-        border-radius: 100%;
-        // background: var(--main-col);
+        font-size: 10px;
         vertical-align: middle;
-        margin: 0px 30px;
+        margin: 0px 25px;
 
         @media screen and (max-width: 850px) {
-            width: 4px;
-            height: 4px;
-            margin-top: -4px;
+            // width: 4px;
+            // height: 4px;
+            // // margin-top: -4px;
             margin-left: 18px;
             margin-right: 18px;
         }
@@ -55,11 +56,11 @@ export const ScrollTextGroup = styled.div`
 
 export const ScrollText = styled.p<{color: string}>`
    width: 100%;
-   font-size: 1rem;
+   font-size: 0.8rem;
    font-weight: 500;
    word-spacing: 4px;
    text-transform : uppercase;
-   padding : 20px 0px;
+   padding : 20px 100px;
    font-family: ${({ theme }) => theme.fonts.Inter};
    color : ${({color}) => color ? "white" : "black"}; 
 `
