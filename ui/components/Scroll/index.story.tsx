@@ -14,7 +14,7 @@ export default {
 };
 // template
 const Template = (args: JSX.IntrinsicAttributes) => {
-	return <Scroll word={""} {...args} />;
+	return <Scroll  {...args} />;
 };
 // default
 export const Default: any = Template.bind({});

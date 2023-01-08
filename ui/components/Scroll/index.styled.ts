@@ -59,7 +59,7 @@ export const ScrollTextHolder = styled.div`
 // `
 
 export const ScrollText = styled.p<{color: string}>`
-   width: 10%;
+//    width: 10%;
    font-size: 0.8rem;
    font-weight: 500;
    word-spacing: 4px;
@@ -67,7 +67,7 @@ export const ScrollText = styled.p<{color: string}>`
    gap: 1rem;
    display: flex;
    flex-direction: row;
-   padding : 0px -10px;
+   padding : 0px 30px;
    font-family: ${({ theme }) => theme.fonts.Inter};
    color : white; 
 
