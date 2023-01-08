@@ -36,15 +36,31 @@ const Scroll = () : JSX.Element => {
             character: "🎲 ",
             word : "Tippers is live on testnet"
         },
+        {
+            character: "🎈",
+            word : "Play and earn"
+        },
+        {
+            character: "🎲 ",
+            word : "Tippers is live on testnet"
+        },
+        {
+            character: "🎈",
+            word : "Play and earn"
+        },
+        {
+            character: "🎲 ",
+            word : "Tippers is live on testnet"
+        },        
     ]
     return (
       <ScrollContainer>
        <ScrollTextHolder>
-           <Marquee>
+           <Marquee gradient={false} speed={20}>
           {
               words.map((each, i) => (
                  <ScrollText color={"ook"}>
-                 {each?.word}
+                 <span>{each?.word}</span>
                  <span>{each?.character}</span>
                  </ScrollText>
               )) 

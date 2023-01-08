@@ -13,10 +13,14 @@ export const ScrollContainer = styled.div`
     white-space: nowrap;
     position: relative;
     margin-left: -29px;
+
+    .overlay::before, .overlay::after {
+        background: unset !important;
+    }
 `
 
 export const ScrollTextHolder = styled.div`
-   margin-top: -13px;
+   margin-top: -10px;
    display: flex;
    flex-direction: row;
 `
@@ -55,13 +59,19 @@ export const ScrollTextHolder = styled.div`
 // `
 
 export const ScrollText = styled.p<{color: string}>`
-   width: 100%;
+   width: 10%;
    font-size: 0.8rem;
    font-weight: 500;
    word-spacing: 4px;
    text-transform : uppercase;
-   gap: 1rem
-   padding : 20px 0px;
+   gap: 1rem;
+   display: flex;
+   flex-direction: row;
+   padding : 0px -10px;
    font-family: ${({ theme }) => theme.fonts.Inter};
-   color : ${({color}) => color ? "white" : "black"}; 
+   color : white; 
+
+   span:nth-child(2) {
+    font-size: 0.6rem;
+   }
 `
