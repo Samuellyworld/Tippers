@@ -18,7 +18,7 @@ const Layout = ({ children, background }: { children: React.ReactNode, backgroun
 		<LayoutWrapper style={{
 			backgroundImage: background ? "url('/assets/pageBG.svg')" : "url('/assets/Landing.png')"
 		}}>
-			<Scroll/>
+			 { !background &&  <Scroll/> }
 			<HeaderWrapper>
 				<Header />
 			</HeaderWrapper>
