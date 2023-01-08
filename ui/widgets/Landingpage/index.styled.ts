@@ -34,6 +34,7 @@ export const LandingpageComponent1 =  styled.div`
      h1 {
        font-size: 2rem;
        inline-size: 30rem;
+    
      
      }
   }
@@ -52,6 +53,7 @@ export const LandingpageComponent1 =  styled.div`
             font-size: 1.6rem;
             inline-size: 23rem;
             padding-left: 1rem;
+            line-height: 4rem;
           
           }
         }
@@ -149,7 +151,7 @@ export const StartButton = styled.button`
     width: 85% !important;
     height: 4rem;
     span {
-      padding: 1rem 7.6rem !important
+      padding: 1.3rem 7.7rem !important
     }
   }
   @media screen and (max-width: 350px) and (min-width: 0px) {

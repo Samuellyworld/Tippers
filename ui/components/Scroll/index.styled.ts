@@ -43,4 +43,11 @@ export const ScrollText = styled.p`
    span:nth-child(2) {
     font-size: 0.6rem;
    }
+   @media screen and (max-width: 400px) {
+       font-size: 12px;
+       span:nth-child(2) {
+        font-size: 9px;
+       }
+   }
+
 `
