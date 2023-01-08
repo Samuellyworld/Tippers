@@ -2,7 +2,8 @@
 // 17 U.S.C §§ 101-1511
 
 // importing styles from styled-component
-import { ScrollContainer, ScrollTextHolder, ScrollTextGroup, ScrollText } from "./index.styled";
+import { ScrollContainer, ScrollTextHolder, ScrollText } from "./index.styled";
+import Marquee from 'react-fast-marquee';
 
 interface wordsInterface {
     character : string,
@@ -39,16 +40,16 @@ const Scroll = () : JSX.Element => {
     return (
       <ScrollContainer>
        <ScrollTextHolder>
-           {
+           <Marquee>
+          {
               words.map((each, i) => (
-                <ScrollTextGroup key={i}>
                  <ScrollText color={"ook"}>
                  {each?.word}
+                 <span>{each?.character}</span>
                  </ScrollText>
-                <span>{each?.character}</span>
-               </ScrollTextGroup>
               )) 
            }
+         </Marquee>
        </ScrollTextHolder>
       </ScrollContainer>
     )
