@@ -25,40 +25,9 @@ export const ScrollTextHolder = styled.div`
    flex-direction: row;
 `
 
-// export const ScrollTextGroup = styled.div`
-//     animation: 15s linear 0s infinite normal none running scrolling;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: row;
 
 
-//     @keyframes scrolling {
-//         0% {
-//           transform: translate3d(30px, 0px, 0px);
-//         }
-//         100% {
-//           transform: translate3d(-100%, 0px, 0px);
-//         }
-//       }
-
-//       span {
-//         display: inline-block;
-//         font-size: 10px;
-//         vertical-align: middle;
-//         margin: 0px 25px;
-
-//         @media screen and (max-width: 850px) {
-//             // width: 4px;
-//             // height: 4px;
-//             // // margin-top: -4px;
-//             margin-left: 18px;
-//             margin-right: 18px;
-//         }
-//       }
-// `
-
-export const ScrollText = styled.p<{color: string}>`
+export const ScrollText = styled.p`
 //    width: 10%;
    font-size: 0.8rem;
    font-weight: 500;
