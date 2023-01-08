@@ -13,8 +13,8 @@ interface wordsInterface {
 const Scroll = () : JSX.Element => {
     const words:wordsInterface[]= [
         {
-            character: "🎲 ",
-            word : "Play and earn"
+            character: "💫",
+            word : "Experience incredible gaming experience on the polygon blockchain"
         },
         {
             character: "🔄",
@@ -51,12 +51,32 @@ const Scroll = () : JSX.Element => {
         {
             character: "🎲 ",
             word : "Tippers is live on testnet"
-        },        
+        },  
+        {
+            character: "💫",
+            word : "Experiencing incredible gaming experience on the polygon blockchain"
+        },   
+        {
+            character: "🎈",
+            word : "Play and earn"
+        },
+        {
+            character: "🎲 ",
+            word : "Tippers is live on testnet"
+        },  
+        {
+            character: "🎈",
+            word : "Play and earn"
+        },
+        {
+            character: "🎲 ",
+            word : "Tippers is live on testnet"
+        },     
     ]
     return (
       <ScrollContainer>
        <ScrollTextHolder>
-           <Marquee gradient={false} speed={20}>
+           <Marquee gradient={false} speed={25} pauseOnClick={true} pauseOnHover={true}>
           {
               words.map((each, i) => (
                  <ScrollText color={"ook"}>
