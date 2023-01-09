@@ -73,7 +73,7 @@ export const LandingpageComponent1 =  styled.div`
 
 export const StartButton = styled.button`
     position: relative;
-    width: 12rem;
+    width: 16rem;
     height: 3rem;
     margin-top: 1rem;
     // margin: 20px;
@@ -144,21 +144,21 @@ export const StartButton = styled.button`
     font-family: ${({ theme }) => theme.fonts.Chopsic};
     border: 1px solid #FFFFFF;
     border-radius: 2px;
-    padding: 0.8rem 4rem;
+    padding: 1rem 6.2rem;
     background: rgba(217, 217, 217, 0.2)
   }
   @media screen and (max-width: 442px) and (min-width: 350px) {
     width: 85% !important;
     height: 4rem;
     span {
-      padding: 1.3rem 7.7rem !important
+      padding: 1.4rem 7.9rem !important
     }
   }
   @media screen and (max-width: 350px) and (min-width: 0px) {
     width: 85% !important;
     height: 4rem;
     span {
-      padding: 1.3rem 6.5rem !important
+      padding: 1.5rem 6.7rem !important
     }
   }
   
